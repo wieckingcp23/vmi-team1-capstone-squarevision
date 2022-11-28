@@ -1,5 +1,5 @@
 import cv2
-import tkinter
+from tkinter import * 
 
 
 
@@ -42,12 +42,12 @@ def start():
         cv2.waitKey(1)
 
 
-main = tkinter.Tk()
+main = Tk()
 
 
 main.title = ('CapStone Sprint 1 and 2')
 
-button = main.Button(main, text='Stop', width=25, command=start())
+button = Button(main, text='Stop', width=25, command=start())
 
 button.pack()
 
