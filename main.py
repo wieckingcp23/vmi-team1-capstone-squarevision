@@ -44,13 +44,14 @@ def start():
 
 main = Tk()
 
+main.geometry('200x200')
 
 main.title = ('CapStone Sprint 1 and 2')
 
-button = Button(main, text='Stop', width=25, command=start())
+button = Button(main, text='Start Program', width=25, command=start())
 
-button.pack()
+button.pack(side = 'top')
 
-main = mainloop()
+main.mainloop()
 
 
