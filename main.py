@@ -1,5 +1,8 @@
 import cv2
-from tkinter import * 
+import tkinter
+from tkinter import *
+from tkinter import ttk
+
 
 
 
@@ -42,16 +45,16 @@ def start():
         cv2.waitKey(1)
 
 
-main = Tk()
+window = tkinter.Tk()
 
-main.geometry('200x200')
+window.geometry('200x200')
 
-main.title = ('CapStone Sprint 1 and 2')
+window.title = ('CapStone Sprint 1 and 2')
 
-button = Button(main, text='Start Program', width=25, command=start())
+button = ttk.Button(window, text='Start Program', command=lambda:start())
 
-button.pack(side = 'top')
+button.pack()
 
-main.mainloop()
+window.mainloop()
 
 
