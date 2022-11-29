@@ -45,15 +45,33 @@ def start():
         cv2.waitKey(1)
 
 
-window = tkinter.Tk()
+window = tkinter.Tk("Cap")
+window.configure(bg='lightgrey')
 
-window.geometry('200x200')
+window.geometry('400x400')
 
-window.title = ('CapStone Sprint 1 and 2')
+L1 = ttk.Label(window, text="PreCapstone")
+L1.grid(column=0, row=0)
+
+
+WLabel = ttk.Label(window, text="Sprint 1 and 2")
+
+WLabel.grid(column=10, row=10)
+
+#WLabel.pack()
 
 button = ttk.Button(window, text='Start Program', command=lambda:start())
 
-button.pack()
+
+button.grid(column = 20, row = 30)
+
+L2 = ttk.Label(window, text="     Fall 2022    ")
+L2.grid(column=10, row=40)
+
+L3 = ttk.Label(window, text="     Team 1     ")
+L3.grid(column=0, row=50)
+
+#button.pack()
 
 window.mainloop()
 
