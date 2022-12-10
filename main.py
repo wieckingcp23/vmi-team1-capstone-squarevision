@@ -41,7 +41,7 @@ def start():
 
 
 
-        cv2.imshow("Output", img)
+        cv2.imshow("Square Vision", img)
         cv2.waitKey(1)
 
 
@@ -58,7 +58,6 @@ WLabel = ttk.Label(window, text="     Sprint 1     ")
 
 WLabel.grid(column=10, row=10)
 
-#WLabel.pack()
 
 button = ttk.Button(window, text='Start Program', command=lambda:start())
 
@@ -71,7 +70,6 @@ L2.grid(column=10, row=40)
 L3 = ttk.Label(window, text="     Team 1     ")
 L3.grid(column=0, row=50)
 
-#button.pack()
 
 window.mainloop()
 
