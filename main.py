@@ -54,7 +54,7 @@ L1 = ttk.Label(window, text="PreCapstone")
 L1.grid(column=0, row=0)
 
 
-WLabel = ttk.Label(window, text="Sprint 1 and 2")
+WLabel = ttk.Label(window, text="     Sprint 1     ")
 
 WLabel.grid(column=10, row=10)
 
