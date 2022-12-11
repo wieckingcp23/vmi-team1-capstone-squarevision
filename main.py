@@ -1,6 +1,5 @@
 import cv2
 import tkinter
-from PIL import ImageTk, Image
 from tkinter import *
 from tkinter import ttk
 
@@ -99,7 +98,7 @@ def change(val):
 master = tkinter.Tk("Cap")
 master.title("Capstone Sprint 2")
 master.configure(bg='lightgrey')
-master.geometry('450x450')
+master.geometry('300x200')
 
 L1 = ttk.Label(master, text="Fall 2022 Pre-Capstone").grid(column=0, row=0)
 L2 = ttk.Label(master, text="Team 1").grid(column=0, row=1)
