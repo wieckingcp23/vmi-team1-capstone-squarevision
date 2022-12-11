@@ -1,5 +1,6 @@
 import cv2
 import tkinter
+from PIL import ImageTk, Image
 from tkinter import *
 from tkinter import ttk
 
@@ -118,11 +119,13 @@ L6 = ttk.Label(master, text= "Use External Camera             ->").grid(column=0
 
 #Confidence Threashold selection with slider (DID NOT WORK) - NOW IS WORKING (HOW????)
 s1 = Scale(master, from_ = 1, to = 99, orient = HORIZONTAL, command=change).grid(column=1, row=2)
-
+L7 = ttk.Label(master, text="Adjust Confidence Threashold").grid(column=0, row=2)
 
 #Confidence Threashold selection with User input (NOT WORKING)
-#L7 = ttk.Label(master, text="Adjust Confidence Threashold").grid(column=0, row=2)
 #num = ttk.Label(master, text="Enter a Number from 0.0 to 0.99 ").grid(column =1, row =1)
 #e1 = ttk.Entry(master).grid(column=1, row=2)
+
+img = ImageTk.PhotoImage(Image.open('bogart.jpg'))
+L8 = ttk.label(master, image = img)
 
 master.mainloop()
