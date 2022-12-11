@@ -83,63 +83,52 @@ def default():
         cv2.imshow("Square Vision", img)
         cv2.waitKey(1)
 
-
-
 #sets the value that determines internal or external camera
 def setVid(value):
     global vid
     vid = value
 
-#sets the confidence threashold
+#slider output - returns a float (not in use rn)
 def change(val):
     x = int(val)/100
     conf = x
     print(conf)
     return conf
 
-    
-
 
 master = tkinter.Tk("Cap")
 master.title("Capstone Sprint 2")
 master.configure(bg='lightgrey')
-
-master.geometry('400x400')
-
+master.geometry('450x450')
 
 #These are the start up buttons
 buttonCustom = ttk.Button(master, text='Start Program', command=lambda:start())
 buttonDefault = ttk.Button(master, text='Default Settings', command=lambda:default())
 
-#Camera variable selection buttons
+#Camera variable selection buttons - working (somehow)
 internal = ttk.Button(master, text="Internal Camera", command=lambda:setVid(0))
 external = ttk.Button(master, text="External Camera", command=lambda:setVid(1))
 
-v1 = DoubleVar()
+#Confidence Threashold selection with slider (DID NOT WORK)
+#s1 = Scale(master, from_ = 1, to = 99, orient = HORIZONTAL, command=change)
+#s1.grid(column=1, row=2)
+#s1.grid(column = 10, row = 70)
 
-conf = ""
-#Confidence Threashold selection
-s1 = Scale(master, variable = conf,  from_ = 1, to = 99, orient = HORIZONTAL, command=change)
+#Confidence Threashold selection with User input
+L3 = ttk.Label(master, text="Adjust Confidence Threashold").grid(column=1, row=1)
+num = ttk.Label(master, text="Enter a Number from 0.0 to 0.99 ").grid(column =1, row =2)
+e1 = ttk.Entry(master).grid(row=4, column=2)
 
+internal.grid(column = 1, row = 5)
+external.grid(column = 1, row = 5)
 
-internal.grid(column = 10, row = 30)
-external.grid(column = 10, row = 35)
+buttonCustom.grid(column = 5, row = 30)
+buttonDefault.grid(column = 5, row = 30)
 
-buttonCustom.grid(column = 20, row = 30)
-buttonDefault.grid(column = 25, row = 30)
+L1 = ttk.Label(master, text="Fall 2022 Pre-Capstone").grid(column=5, row=0)
 
-L1 = ttk.Label(master, text="Fall 2022 Pre-Capstone")
-L1.grid(column=20, row=0)
-
-L2 = ttk.Label(master, text="Team 1")
-L2.grid(column=20, row=1)
-
-L3 = ttk.Label(master, text="Adjust Confidence Threashold")
-L3.grid(column=1, row=1)
-s1.grid(column=1, row=2)
+L2 = ttk.Label(master, text="Team 1").grid(column=3, row=1)
 
 
-s1.grid(column = 10, row = 70)
+
 master.mainloop()
-
-
