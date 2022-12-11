@@ -29,7 +29,7 @@ def start():
     while True:
         success, img = cap.read()
         #confidence threashold = how sure the algo is that an object is an object
-        classIds, confs, bbox = net.detect(img, confThreshold = float(e1.get()))
+        classIds, confs, bbox = net.detect(img, confThreshold = x)
         print(classIds, bbox)
 
         if len(classIds) != 0:
@@ -88,13 +88,11 @@ def setVid(value):
     global vid
     vid = value
 
-#slider output - returns a float (not in use rn)
+#slider output
 def change(val):
+    global x
     x = int(val)/100
-    conf = x
-    print(conf)
-    return conf
-
+    return x
 
 
 master = tkinter.Tk("Cap")
@@ -107,8 +105,8 @@ L2 = ttk.Label(master, text="Team 1").grid(column=0, row=1)
 
 
 #These are the start up buttons
-buttonCustom = ttk.Button(master, text='Start Program', command=lambda:start()).grid(column = 1, row = 20)
-buttonDefault = ttk.Button(master, text='Default Settings', command=lambda:default()).grid(column = 1, row = 22)
+buttonCustom = ttk.Button(master, text='Start Custom Settings', command=lambda:start()).grid(column = 1, row = 20)
+buttonDefault = ttk.Button(master, text='Start Default Settings', command=lambda:default()).grid(column = 1, row = 22)
 L3 = ttk.Label(master, text= "Run Custom Settings             ->").grid(column=0, row=20)
 L4 = ttk.Label(master, text= "Run Default Settings             ->").grid(column=0, row=22)
 
@@ -118,15 +116,13 @@ external = ttk.Button(master, text="External Camera", command=lambda:setVid(1)).
 L5 = ttk.Label(master, text= "Use Internal Camera             ->").grid(column=0, row=10)
 L6 = ttk.Label(master, text= "Use External Camera             ->").grid(column=0, row=11)
 
-#Confidence Threashold selection with slider (DID NOT WORK)
-#s1 = Scale(master, from_ = 1, to = 99, orient = HORIZONTAL, command=change)
-#s1.grid(column=1, row=2)
-#s1.grid(column = 10, row = 70)
+#Confidence Threashold selection with slider (DID NOT WORK) - NOW IS WORKING (HOW????)
+s1 = Scale(master, from_ = 1, to = 99, orient = HORIZONTAL, command=change).grid(column=1, row=2)
 
 
-#Confidence Threashold selection with User input
-L7 = ttk.Label(master, text="Adjust Confidence Threashold").grid(column=0, row=2)
-num = ttk.Label(master, text="Enter a Number from 0.0 to 0.99 ").grid(column =1, row =1)
-e1 = ttk.Entry(master).grid(column=1, row=2)
+#Confidence Threashold selection with User input (NOT WORKING)
+#L7 = ttk.Label(master, text="Adjust Confidence Threashold").grid(column=0, row=2)
+#num = ttk.Label(master, text="Enter a Number from 0.0 to 0.99 ").grid(column =1, row =1)
+#e1 = ttk.Entry(master).grid(column=1, row=2)
 
 master.mainloop()
