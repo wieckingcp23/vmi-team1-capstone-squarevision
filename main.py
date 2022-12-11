@@ -125,7 +125,5 @@ L7 = ttk.Label(master, text="Adjust Confidence Threashold").grid(column=0, row=2
 #num = ttk.Label(master, text="Enter a Number from 0.0 to 0.99 ").grid(column =1, row =1)
 #e1 = ttk.Entry(master).grid(column=1, row=2)
 
-img = ImageTk.PhotoImage(Image.open('bogart.jpg'))
-L8 = ttk.label(master, image = img)
 
 master.mainloop()
