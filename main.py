@@ -117,7 +117,7 @@ L5 = ttk.Label(master, text= "Use Internal Camera             ->").grid(column=0
 L6 = ttk.Label(master, text= "Use External Camera             ->").grid(column=0, row=11)
 
 #Confidence Threashold selection with slider (DID NOT WORK) - NOW IS WORKING (HOW????)
-s1 = Scale(master, from_ = 1, to = 99, orient = HORIZONTAL, command=change).grid(column=1, row=2)
+s1 = Scale(master, from_ = 1, to = 100, orient = HORIZONTAL, command=change).grid(column=1, row=2)
 L7 = ttk.Label(master, text="Adjust Confidence Threashold").grid(column=0, row=2)
 
 #Confidence Threashold selection with User input (NOT WORKING)
