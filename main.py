@@ -120,9 +120,4 @@ L6 = ttk.Label(master, text= "Use External Camera             ->").grid(column=0
 s1 = Scale(master, from_ = 1, to = 100, orient = HORIZONTAL, command=change).grid(column=1, row=2)
 L7 = ttk.Label(master, text="Adjust Confidence Threashold").grid(column=0, row=2)
 
-#Confidence Threashold selection with User input (NOT WORKING)
-#num = ttk.Label(master, text="Enter a Number from 0.0 to 0.99 ").grid(column =1, row =1)
-#e1 = ttk.Entry(master).grid(column=1, row=2)
-
-
 master.mainloop()
