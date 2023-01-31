@@ -8,7 +8,7 @@ import datetime
 
 def toInput():
     global y
-    y=textbox.get("1.0","end-1c")
+    y=txtTimer.get("1.0","end-1c")
  
 
 #sets the value that determines internal or external camera
@@ -112,32 +112,31 @@ def default():
 #
 #GUI Stuff
 root = tk.Tk()
-
 root.geometry("900x500")
 root.title("Square Vision")
 
 
+#Frame Grid
 lblFrame = tk.Frame(root)
 lblFrame.columnconfigure(0, weight=1)
 lblFrame.columnconfigure(1, weight=1)
 lblFrame.columnconfigure(2, weight=1)
 
-label = tk.Label(lblFrame, text="Square Vision v. 4.0", font=('Arial', 18))
+label = tk.Label(lblFrame, text="Square Vision v.4.0", font=('Arial', 18))
 label.grid(row=0, column=1, sticky =tk.W+tk.E)
-#label.pack(padx=20, side = TOP, anchor = N)
 label2 = tk.Label(lblFrame, text="Sprint 4", font=('Arial', 14))
 label2.grid(row=1, column=1, sticky =tk.W+tk.E)
 label3 = tk.Label(lblFrame, text="CIS 490 Capstone | 2/14/23", font=('Arial', 12))
 label3.grid(row=2, column=1, sticky =tk.W+tk.E)
 lblFrame.pack()
 
-image=Image.open('vmi.png')
+image=Image.open('bogart.jpg')
 image2=image.resize((75,75),Image.ANTIALIAS)
 newImage =ImageTk.PhotoImage(image2)
 lbl = tk.Label(lblFrame, image=newImage)
 lbl.grid(row=0, column=0, sticky =tk.W+tk.E)
 
-image3=Image.open('vmi.png')
+image3=Image.open('denis.jpg')
 image4=image3.resize((75,75),Image.ANTIALIAS)
 newImage2 =ImageTk.PhotoImage(image4)
 lbl2 = tk.Label(lblFrame, image=newImage2)
@@ -151,7 +150,16 @@ buttonFrame.columnconfigure(2, weight=1)
 buttonFrame.columnconfigure(3, weight=1)
 
 
-#Internal Camera GUI
+#Camera GUI as Radiobuttons
+rblbl = tk.Label(buttonFrame, text = "Select Internal Camera or External Camera:", font =('Arial', 13))
+rblbl.grid(row=0, column=0, sticky =tk.W+tk.E)
+rb1 = Radiobutton(buttonFrame, text = "Internal", command=lambda:setVid(0))
+rb1.grid(row=0, column=1, sticky =tk.W+tk.E)
+rb2 = Radiobutton(buttonFrame, text = "External", command=lambda:setVid(1))
+rb2.grid(row=1, column=1, sticky =tk.W+tk.E)
+
+
+""" #Internal Camera GUI
 lblInternal = tk.Label(buttonFrame, text = "Use Internal Camera", font =('Arial', 13))
 lblInternal.grid(row=0, column=0, sticky =tk.W+tk.E)
 btninternal = tk.Button(buttonFrame, text="Internal Camera", command=lambda:setVid(0))
@@ -165,7 +173,7 @@ lblExternal.grid(row=1, column=0, sticky =tk.W+tk.E)
 btnExternal = tk.Button(buttonFrame, text="External Camera", command=lambda:setVid(1))
 btnExternal.grid(row=1, column=1, sticky =tk.W+tk.E)
 lblExtInst = tk.Label(buttonFrame, text="Uses an external camera", font=('Arial', 10))
-lblExtInst.grid(row=1, column=2, sticky =tk.W)
+lblExtInst.grid(row=1, column=2, sticky =tk.W) """
 
 #Confidence Threashold GUI
 lblConf = tk.Label(buttonFrame, text="Adjust Confidence Threashold", font=('Arial', 13))
