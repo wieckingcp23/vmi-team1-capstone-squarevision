@@ -199,11 +199,11 @@ btndefault.grid(row=6, column=2, sticky =tk.W+tk.E)
 lblDes = tk.Label(buttonFrame, text = "Default Definitions: \nInput Device = Internal Camera \nConfidence Threashold = 50%\nTimer Duration = Infinite", font=('Arial', 13), anchor="w")
 lblDes.grid(row=7, column=2, sticky =tk.N)
 
-""" image35=Image.open('denis.jpg')
+"""image35=Image.open('denis.jpg')
 image45=image35.resize((100,100),Image.ANTIALIAS)
 newImage25 =ImageTk.PhotoImage(image45)
 dj = tk.Label(buttonFrame, image=newImage25)
-dj.grid(row=7, column=0, sticky =tk.W+tk.E) """
+dj.grid(row=7, column=0, sticky =tk.W+tk.E)"""
 
 
 
