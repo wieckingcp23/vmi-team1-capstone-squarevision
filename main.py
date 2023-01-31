@@ -3,11 +3,13 @@ import cv2
 from tkinter import *
 from PIL import ImageTk, Image
 import time
+import datetime
 
 
 def toInput():
     global y
     y=textbox.get("1.0","end-1c")
+    float(y)
  
 
 #sets the value that determines internal or external camera
@@ -39,11 +41,16 @@ def start():
     net.setInputScale(1.0 / 127.5)
     net.setInputMean((127.5, 127.5, 127.5))
     net.setInputSwapRB(True)
-    
+
+    def countdown(s):
+        total_seconds = s
+        while total_seconds > 0:
+            timer = datetime.timedelta(seconds = total_seconds)
+            print(timer, end="\r")
+            time.sleep(.001)
 
 
-    for i in range(1, int(y)):
-        #while True:
+            total_seconds -=1
             success, img = cap.read()
             classIds, confs, bbox = net.detect(img, confThreshold = x)
             #print(classIds, bbox)
@@ -56,10 +63,9 @@ def start():
                     
             cv2.imshow("Square Vision", img)
             cv2.waitKey(1)
-            i = i + 1
-            time.sleep(.001)
-            #print(i)
-    #net.setInputSwapRB(False)
+    
+    countdown(y)
+       
 
 # This is the orginial scrpit - do not change
 def default():
