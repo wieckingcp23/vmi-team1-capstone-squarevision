@@ -151,56 +151,55 @@ buttonFrame.columnconfigure(2, weight=1)
 buttonFrame.columnconfigure(3, weight=1)
 
 
+#Internal Camera GUI
+lblInternal = tk.Label(buttonFrame, text = "Use Internal Camera", font =('Arial', 13))
+lblInternal.grid(row=0, column=0, sticky =tk.W+tk.E)
+btninternal = tk.Button(buttonFrame, text="Internal Camera", command=lambda:setVid(0))
+btninternal.grid(row=0, column=1, sticky =tk.W+tk.E)
+lblIntInst = tk.Label(buttonFrame, text="Uses the system's internal camera", font=('Arial', 10))
+lblIntInst.grid(row=0, column=2, sticky =tk.W)
 
-label4 = tk.Label(buttonFrame, text = "Use Internal Camera", font =('Arial', 13))
-label4.grid(row=0, column=0, sticky =tk.W+tk.E)
-internal = tk.Button(buttonFrame, text="Internal Camera", command=lambda:setVid(0))
-internal.grid(row=0, column=1, sticky =tk.W+tk.E)
+#External Camera GUI
+lblExternal= tk.Label(buttonFrame, text = "Use External Camera", font =('Arial', 13))
+lblExternal.grid(row=1, column=0, sticky =tk.W+tk.E)
+btnExternal = tk.Button(buttonFrame, text="External Camera", command=lambda:setVid(1))
+btnExternal.grid(row=1, column=1, sticky =tk.W+tk.E)
+lblExtInst = tk.Label(buttonFrame, text="Uses an external camera", font=('Arial', 10))
+lblExtInst.grid(row=1, column=2, sticky =tk.W)
+
+#Confidence Threashold GUI
+lblConf = tk.Label(buttonFrame, text="Adjust Confidence Threashold", font=('Arial', 13))
+lblConf.grid(row=2, column=0, sticky =tk.W+tk.E)
+sliderConf = Scale(buttonFrame, from_ = 1, to = 100, orient = HORIZONTAL, command=change)
+sliderConf.grid(row=2, column=1, sticky =tk.W+tk.E)
+lblConfInst = tk.Label(buttonFrame, text="Confidence Threashold is how confident the\n algorithm is at identifing objects", font=('Arial', 10))
+lblConfInst.grid(row=2, column=2, sticky =tk.W)
+
+#timer GUI
+lblTimer = tk.Label(buttonFrame, text = "Set Timer (in Seconds)", font=('Arial', 13))
+lblTimer.grid(row=3, column=0,sticky =tk.W+tk.E)
+txtTimer = tk.Text(buttonFrame,height = .5, width = 1, font=('Arial', 13))
+txtTimer.grid(row=3, column=1,sticky =tk.W+tk.E)
+btnTimer = tk.Button(buttonFrame, text = "Enter", command=lambda: toInput())
+btnTimer.grid(row=3, column=2, sticky =tk.W+tk.E)
+
+#Spacer 
+lblSpace = tk.Label(buttonFrame)
+lblSpace.grid(row=4, column=0,sticky =tk.W+tk.E)
+lblSpace2 = tk.Label(buttonFrame)
+lblSpace2.grid(row=5, column=2, sticky =tk.W+tk.E)
+
+#Execution GUI
+btnCustom = tk.Button(buttonFrame, text="Custom Settings", command=lambda:start(), font=('Arial', 14))
+btnCustom.grid(row=6, column=0,sticky =tk.W+tk.E)
+btnDefault = tk.Button(buttonFrame, text="Default Settings", command=lambda:default(), font=('Arial', 14))
+btnDefault.grid(row=6, column=2, sticky =tk.W+tk.E)
+lblDefaultDes = tk.Label(buttonFrame, text = "Default Definitions: \nInput Device = Internal Camera \nConfidence Threashold = 50%\nTimer Duration = Infinite", font=('Arial', 13), anchor="w")
+lblDefaultDes.grid(row=7, column=2, sticky =tk.N)
 
 
-label5 = tk.Label(buttonFrame, text = "Use Internal Camera", font =('Arial', 13))
-label5.grid(row=1, column=0, sticky =tk.W+tk.E)
-external = tk.Button(buttonFrame, text="External Camera", command=lambda:setVid(1))
-external.grid(row=1, column=1, sticky =tk.W+tk.E)
-
-lblB = tk.Label(buttonFrame, text="Uses the system's internal camera", font=('Arial', 10))
-lblB.grid(row=0, column=2, sticky =tk.W)
-lblD = tk.Label(buttonFrame, text="Uses an external camera", font=('Arial', 10))
-lblD.grid(row=1, column=2, sticky =tk.W)
-
-
-label6 = tk.Label(buttonFrame, text="Adjust Confidence Threashold", font=('Arial', 13))
-label6.grid(row=2, column=0, sticky =tk.W+tk.E)
-s1 = Scale(buttonFrame, from_ = 1, to = 100, resolution =2, orient = HORIZONTAL, command=change)
-s1.grid(row=2, column=1, sticky =tk.W+tk.E)
-lblC = tk.Label(buttonFrame, text="Confidence Threashold is how confident the\nalgorithm is at identifing objects", font=('Arial', 10))
-lblC.grid(row=2, column=2, sticky =tk.W+tk.E)
-
-lbl7 = tk.Label(buttonFrame, text = "Set Timer (in Seconds)", font=('Arial', 13))
-lbl7.grid(row=3, column=0,sticky =tk.W+tk.E)
-textbox = tk.Text(buttonFrame,height = .5, width = 1, font=('Arial', 13))
-textbox.grid(row=3, column=1,sticky =tk.W+tk.E)
-btnTxt = tk.Button(buttonFrame, text = "Enter", command=lambda: toInput())
-btnTxt.grid(row=3, column=2, sticky =tk.W+tk.E)
-
-
-label9 = tk.Label(buttonFrame)
-label9.grid(row=4, column=0,sticky =tk.W+tk.E)
-label10 = tk.Label(buttonFrame)
-label10.grid(row=5, column=2, sticky =tk.W+tk.E)
-
-custom = tk.Button(buttonFrame, text="Custom Settings", command=lambda:start(), font=('Arial', 14))
-custom.grid(row=6, column=0,sticky =tk.W+tk.E)
-
-btndefault = tk.Button(buttonFrame, text="Default Settings", command=lambda:default(), font=('Arial', 14))
-btndefault.grid(row=6, column=2, sticky =tk.W+tk.E)
-
-lblDes = tk.Label(buttonFrame, text = "Default Definitions: \nInput Device = Internal Camera \nConfidence Threashold = 50%\nTimer Duration = Infinite", font=('Arial', 13), anchor="w")
-lblDes.grid(row=7, column=2, sticky =tk.N)
-
-
-buttonFrame.pack(fill = 'x')
-#buttonFrame.pack()
+#buttonFrame.pack(fill = 'x')
+buttonFrame.pack()
 
 
 
