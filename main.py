@@ -103,12 +103,19 @@ def default():
 
         cv2.imshow("Square Vision", img)
         cv2.waitKey(1)
-
+#
+#
+#
+#
+#
+#
+#
 #GUI Stuff
 root = tk.Tk()
 
-root.geometry("800x500")
+root.geometry("900x500")
 root.title("Square Vision")
+
 
 lblFrame = tk.Frame(root)
 lblFrame.columnconfigure(0, weight=1)
@@ -116,14 +123,27 @@ lblFrame.columnconfigure(1, weight=1)
 lblFrame.columnconfigure(2, weight=1)
 
 label = tk.Label(lblFrame, text="Square Vision", font=('Arial', 18))
-label.grid(row=0, column=0, sticky =tk.W+tk.E)
+label.grid(row=0, column=1, sticky =tk.W+tk.E)
 #label.pack(padx=20, side = TOP, anchor = N)
 label2 = tk.Label(lblFrame, text="Sprint 3", font=('Arial', 14))
-label2.grid(row=1, column=0, sticky =tk.W+tk.E)
-
+label2.grid(row=1, column=1, sticky =tk.W+tk.E)
 label3 = tk.Label(lblFrame, text="CIS 490 Capstone | 1/31/23", font=('Arial', 12))
-label3.grid(row=2, column=0, sticky =tk.W+tk.E)
+label3.grid(row=2, column=1, sticky =tk.W+tk.E)
 lblFrame.pack()
+
+image=Image.open('vmi.png')
+image2=image.resize((100,100),Image.ANTIALIAS)
+newImage =ImageTk.PhotoImage(image2)
+lbl = tk.Label(lblFrame, image=newImage)
+lbl.grid(row=0, column=0, sticky =tk.W+tk.E)
+
+#image3=Image.open('denis.jpg')
+image3=Image.open('vmi.png')
+image4=image3.resize((100,100),Image.ANTIALIAS)
+newImage2 =ImageTk.PhotoImage(image4)
+
+lbl2 = tk.Label(lblFrame, image=newImage2)
+lbl2.grid(row=0, column=2, sticky =tk.W+tk.E)
 
 
 buttonFrame = tk.Frame(root)
@@ -145,12 +165,18 @@ label5.grid(row=1, column=0, sticky =tk.W+tk.E)
 external = tk.Button(buttonFrame, text="External Camera", command=lambda:setVid(1))
 external.grid(row=1, column=1, sticky =tk.W+tk.E)
 
+lblB = tk.Label(buttonFrame, text="Uses the system's internal camera", font=('Arial', 10))
+lblB.grid(row=0, column=2, sticky =tk.W)
+lblD = tk.Label(buttonFrame, text="Uses an external camera", font=('Arial', 10))
+lblD.grid(row=1, column=2, sticky =tk.W)
+
 
 label6 = tk.Label(buttonFrame, text="Adjust Confidence Threashold", font=('Arial', 13))
 label6.grid(row=2, column=0, sticky =tk.W+tk.E)
 s1 = Scale(buttonFrame, from_ = 1, to = 100, resolution =2, orient = HORIZONTAL, command=change)
 s1.grid(row=2, column=1, sticky =tk.W+tk.E)
-
+lblC = tk.Label(buttonFrame, text="Confidence Threashold is how confident the\nalgorithm is at identifing objects", font=('Arial', 10))
+lblC.grid(row=2, column=2, sticky =tk.W+tk.E)
 
 lbl7 = tk.Label(buttonFrame, text = "Set Timer (in Seconds)", font=('Arial', 13))
 lbl7.grid(row=3, column=0,sticky =tk.W+tk.E)
@@ -168,8 +194,13 @@ label10.grid(row=5, column=2, sticky =tk.W+tk.E)
 custom = tk.Button(buttonFrame, text="Custom Settings", command=lambda:start(), font=('Arial', 14))
 custom.grid(row=6, column=0,sticky =tk.W+tk.E)
 
-custom2 = tk.Button(buttonFrame, text="Default Settings", command=lambda:default(), font=('Arial', 14))
-custom2.grid(row=6, column=2, sticky =tk.W+tk.E)
+btndefault = tk.Button(buttonFrame, text="Default Settings", command=lambda:default(), font=('Arial', 14))
+btndefault.grid(row=6, column=2, sticky =tk.W+tk.E)
+
+lblDes = tk.Label(buttonFrame, text = "Default Definitions: \nInput Device = Internal Camera \nConfidence Threashold = 50%\nTimer Duration = Infinite", font=('Arial', 13), anchor="w")
+lblDes.grid(row=7, column=2, sticky =tk.N)
+
+
 
 #buttonFrame.pack(fill = 'x')
 buttonFrame.pack()
