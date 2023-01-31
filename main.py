@@ -4,12 +4,11 @@ from tkinter import *
 from PIL import ImageTk, Image
 import time
 
-""" def toInput():
-    global inputValue
-    inputValue=textbox.get("1.0","end-1c")
-    x = int(inputValue)
-    return x
- """
+
+def toInput():
+    global y
+    y=textbox.get("1.0","end-1c")
+ 
 
 #sets the value that determines internal or external camera
 def setVid(value):
@@ -41,19 +40,26 @@ def start():
     net.setInputMean((127.5, 127.5, 127.5))
     net.setInputSwapRB(True)
     
-    while True:
-        success, img = cap.read()
-        classIds, confs, bbox = net.detect(img, confThreshold = x)
-        print(classIds, bbox)
-        
-        if len(classIds) != 0:
+
+
+    for i in range(1, int(y)):
+        #while True:
+            success, img = cap.read()
+            classIds, confs, bbox = net.detect(img, confThreshold = x)
+            #print(classIds, bbox)
             
-            for classIds, confidence, box in zip(classIds.flatten(), confs.flatten(), bbox):
-                cv2.rectangle(img, box, color = (0, 255, 0), thickness = 2)
-                cv2.putText(img, classNames[classIds-1].upper(), (box[0]+10, box[1]+30), cv2.FONT_HERSHEY_COMPLEX_SMALL,1,(0,255,0), 2)
+            if len(classIds) != 0:
                 
-        cv2.imshow("Square Vision", img)
-        cv2.waitKey(1)
+                for classIds, confidence, box in zip(classIds.flatten(), confs.flatten(), bbox):
+                    cv2.rectangle(img, box, color = (0, 255, 0), thickness = 2)
+                    cv2.putText(img, classNames[classIds-1].upper(), (box[0]+10, box[1]+30), cv2.FONT_HERSHEY_COMPLEX_SMALL,1,(0,255,0), 2)
+                    
+            cv2.imshow("Square Vision", img)
+            cv2.waitKey(1)
+            i = i + 1
+            time.sleep(.001)
+            #print(i)
+    #net.setInputSwapRB(False)
 
 # This is the orginial scrpit - do not change
 def default():
@@ -142,12 +148,12 @@ s1 = Scale(buttonFrame, from_ = 1, to = 100, resolution =2, orient = HORIZONTAL,
 s1.grid(row=2, column=1, sticky =tk.W+tk.E)
 
 
-""" lbl7 = tk.Label(buttonFrame, text = "Set timer", font=('Arial', 13))
+lbl7 = tk.Label(buttonFrame, text = "Set timer", font=('Arial', 13))
 lbl7.grid(row=3, column=0,sticky =tk.W+tk.E)
 textbox = tk.Text(buttonFrame,height = .5, width = 1, font=('Arial', 13))
 textbox.grid(row=3, column=1,sticky =tk.W+tk.E)
 btnTxt = tk.Button(buttonFrame, text = "Enter", command=lambda: toInput())
-btnTxt.grid(row=3, column=2, sticky =tk.W+tk.E) """
+btnTxt.grid(row=3, column=2, sticky =tk.W+tk.E)
 
 
 label9 = tk.Label(buttonFrame)
