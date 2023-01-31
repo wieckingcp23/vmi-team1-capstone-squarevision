@@ -141,7 +141,6 @@ lbl.grid(row=0, column=0, sticky =tk.W+tk.E)
 image3=Image.open('vmi.png')
 image4=image3.resize((100,100),Image.ANTIALIAS)
 newImage2 =ImageTk.PhotoImage(image4)
-
 lbl2 = tk.Label(lblFrame, image=newImage2)
 lbl2.grid(row=0, column=2, sticky =tk.W+tk.E)
 
@@ -199,6 +198,12 @@ btndefault.grid(row=6, column=2, sticky =tk.W+tk.E)
 
 lblDes = tk.Label(buttonFrame, text = "Default Definitions: \nInput Device = Internal Camera \nConfidence Threashold = 50%\nTimer Duration = Infinite", font=('Arial', 13), anchor="w")
 lblDes.grid(row=7, column=2, sticky =tk.N)
+
+""" image35=Image.open('denis.jpg')
+image45=image35.resize((100,100),Image.ANTIALIAS)
+newImage25 =ImageTk.PhotoImage(image45)
+dj = tk.Label(buttonFrame, image=newImage25)
+dj.grid(row=7, column=0, sticky =tk.W+tk.E) """
 
 
 
