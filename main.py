@@ -122,7 +122,7 @@ lblFrame.columnconfigure(0, weight=1)
 lblFrame.columnconfigure(1, weight=1)
 lblFrame.columnconfigure(2, weight=1)
 
-label = tk.Label(lblFrame, text="Square Vision", font=('Arial', 18))
+label = tk.Label(lblFrame, text="Square Vision V2.5", font=('Arial', 18))
 label.grid(row=0, column=1, sticky =tk.W+tk.E)
 #label.pack(padx=20, side = TOP, anchor = N)
 label2 = tk.Label(lblFrame, text="Sprint 3", font=('Arial', 14))
