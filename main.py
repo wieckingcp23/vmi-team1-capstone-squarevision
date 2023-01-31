@@ -1,9 +1,21 @@
+import tkinter as tk
 import cv2
-import tkinter
 from tkinter import *
-from tkinter import ttk
+from PIL import ImageTk, Image
+
+bg = PhotoImage(file = "vmi.png")
 
 
+#sets the value that determines internal or external camera
+def setVid(value):
+    global vid
+    vid = value
+
+#slider output
+def change(val):
+    global x
+    x = int(val)/100
+    return x
 
 #this is where we will let the user customize options
 def start():
@@ -83,41 +95,68 @@ def default():
         cv2.imshow("Square Vision", img)
         cv2.waitKey(1)
 
-#sets the value that determines internal or external camera
-def setVid(value):
-    global vid
-    vid = value
+#GUI Stuff
+root = tk.Tk()
 
-#slider output
-def change(val):
-    global x
-    x = int(val)/100
-    return x
+root.geometry("800x500")
+root.title("Square Vision")
+
+lblFrame = tk.Frame(root)
+lblFrame.columnconfigure(0, weight=1)
+lblFrame.columnconfigure(1, weight=1)
+lblFrame.columnconfigure(2, weight=1)
+
+label = tk.Label(lblFrame, text="Square Vision", font=('Arial', 18))
+label.grid(row=0, column=0, sticky =tk.W+tk.E)
+#label.pack(padx=20, side = TOP, anchor = N)
+label2 = tk.Label(lblFrame, text="Sprint 3", font=('Arial', 14))
+label2.grid(row=1, column=0, sticky =tk.W+tk.E)
+
+label3 = tk.Label(lblFrame, text="CIS 490 Capstone | 1/31/23", font=('Arial', 12))
+label3.grid(row=2, column=0, sticky =tk.W+tk.E)
+lblFrame.pack()
 
 
-master = tkinter.Tk("Cap")
-master.title("Capstone Sprint 2")
-master.configure(bg='lightgrey')
-master.geometry('300x200')
+buttonFrame = tk.Frame(root)
+buttonFrame.columnconfigure(0, weight=1)
+buttonFrame.columnconfigure(1, weight=1)
+buttonFrame.columnconfigure(2, weight=1)
 
-L1 = ttk.Label(master, text="Fall 2022 Pre-Capstone").grid(column=0, row=0)
-L2 = ttk.Label(master, text="Team 1").grid(column=0, row=1)
+label4 = tk.Label(buttonFrame, text = "Use Internal Camera", font =('Arial', 13))
+label4.grid(row=0, column=0, sticky =tk.W+tk.E)
+internal = tk.Button(buttonFrame, text="Internal Camera", command=lambda:setVid(0))
+internal.grid(row=0, column=1, sticky =tk.W+tk.E)
 
 
-#These are the start up buttons
-buttonCustom = ttk.Button(master, text='Start Custom Settings', command=lambda:start()).grid(column = 1, row = 20)
-buttonDefault = ttk.Button(master, text='Start Default Settings', command=lambda:default()).grid(column = 1, row = 22)
-L3 = ttk.Label(master, text= "Run Custom Settings             ->").grid(column=0, row=20)
-L4 = ttk.Label(master, text= "Run Default Settings             ->").grid(column=0, row=22)
+label5 = tk.Label(buttonFrame, text = "Use Internal Camera", font =('Arial', 13))
+label5.grid(row=1, column=0, sticky =tk.W+tk.E)
+external = tk.Button(buttonFrame, text="External Camera", command=lambda:setVid(1))
+external.grid(row=1, column=1, sticky =tk.W+tk.E)
 
-#Camera variable selection buttons - working (somehow)
-internal = ttk.Button(master, text="Internal Camera", command=lambda:setVid(0)).grid(column = 1, row = 10)
-external = ttk.Button(master, text="External Camera", command=lambda:setVid(1)).grid(column = 1, row = 11)
-L5 = ttk.Label(master, text= "Use Internal Camera             ->").grid(column=0, row=10)
-L6 = ttk.Label(master, text= "Use External Camera             ->").grid(column=0, row=11)
 
-#Confidence Threashold selection with slider (DID NOT WORK) - NOW IS WORKING (HOW????)
-s1 = Scale(master, from_ = 1, to = 100, orient = HORIZONTAL, command=change).grid(column=1, row=2)
-L7 = ttk.Label(master, text="Adjust Confidence Threashold").grid(column=0, row=2)
+label6 = tk.Label(buttonFrame, text="Adjust Confidence Threashold", font=('Arial', 13))
+label6.grid(row=2, column=0, sticky =tk.W+tk.E)
 
-master.mainloop()
+
+s1 = Scale(buttonFrame, from_ = 1, to = 100, resolution =2, orient = HORIZONTAL, command=change)
+#s1.pack()
+s1.grid(row=2, column=1, sticky =tk.W+tk.E)
+
+
+label7 = tk.Label(buttonFrame)
+label7.grid(row=3, column=0,sticky =tk.W+tk.E)
+label8 = tk.Label(buttonFrame)
+label8.grid(row=3, column=2, sticky =tk.W+tk.E)
+
+custom = tk.Button(buttonFrame, text="Custom Settings", command=lambda:start(), font=('Arial', 14))
+custom.grid(row=4, column=0,sticky =tk.W+tk.E)
+
+custom2 = tk.Button(buttonFrame, text="Default Settings", command=lambda:default(), font=('Arial', 14))
+custom2.grid(row=4, column=2, sticky =tk.W+tk.E)
+
+#buttonFrame.pack(fill = 'x')
+buttonFrame.pack()
+
+
+
+root.mainloop()
