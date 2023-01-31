@@ -9,7 +9,6 @@ import datetime
 def toInput():
     global y
     y=textbox.get("1.0","end-1c")
-    float(y)
  
 
 #sets the value that determines internal or external camera
@@ -43,14 +42,13 @@ def start():
     net.setInputSwapRB(True)
 
     def countdown(s):
-        total_seconds = s
+        total_seconds = int(s)
         while total_seconds > 0:
             timer = datetime.timedelta(seconds = total_seconds)
             print(timer, end="\r")
             time.sleep(.001)
-
-
-            total_seconds -=1
+            total_seconds -=.1
+            
             success, img = cap.read()
             classIds, confs, bbox = net.detect(img, confThreshold = x)
             #print(classIds, bbox)
@@ -154,7 +152,7 @@ s1 = Scale(buttonFrame, from_ = 1, to = 100, resolution =2, orient = HORIZONTAL,
 s1.grid(row=2, column=1, sticky =tk.W+tk.E)
 
 
-lbl7 = tk.Label(buttonFrame, text = "Set timer", font=('Arial', 13))
+lbl7 = tk.Label(buttonFrame, text = "Set Timer (in Seconds)", font=('Arial', 13))
 lbl7.grid(row=3, column=0,sticky =tk.W+tk.E)
 textbox = tk.Text(buttonFrame,height = .5, width = 1, font=('Arial', 13))
 textbox.grid(row=3, column=1,sticky =tk.W+tk.E)
