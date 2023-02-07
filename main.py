@@ -137,7 +137,7 @@ lbl = tk.Label(lblFrame, image=newImage)
 lbl.grid(row=0, column=0, sticky =tk.W+tk.E)
 
 image3=Image.open('denis.jpg')
-image4=image3.resize((75,75),Image.ANTIALIAS)
+image4=image3.resize((75, 75),Image.ANTIALIAS)
 newImage2 =ImageTk.PhotoImage(image4)
 lbl2 = tk.Label(lblFrame, image=newImage2)
 lbl2.grid(row=0, column=2, sticky =tk.W+tk.E)
@@ -153,9 +153,9 @@ buttonFrame.columnconfigure(3, weight=1)
 #Camera GUI as Radiobuttons
 rblbl = tk.Label(buttonFrame, text = "Select Internal Camera or External Camera:", font =('Arial', 13))
 rblbl.grid(row=0, column=0, sticky =tk.W+tk.E)
-rb1 = Radiobutton(buttonFrame, text = "Internal", command=lambda:setVid(0))
+rb1 = Radiobutton(buttonFrame, text = "Internal Camera", command=lambda:setVid(0))
 rb1.grid(row=0, column=1, sticky =tk.W+tk.E)
-rb2 = Radiobutton(buttonFrame, text = "External", command=lambda:setVid(1))
+rb2 = Radiobutton(buttonFrame, text = "External Camera", command=lambda:setVid(1))
 rb2.grid(row=1, column=1, sticky =tk.W+tk.E)
 
 
