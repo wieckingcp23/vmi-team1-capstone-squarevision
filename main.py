@@ -165,7 +165,7 @@ rb2.grid(row=1, column=1, sticky =tk.W+tk.E)
 #Internal Camera GUI
 lblInternal = tk.Label(buttonFrame, text = "Use Internal Camera", font =('Arial', 13))
 lblInternal.grid(row=0, column=0, sticky =tk.W+tk.E)
-btninternal = tk.Button(buttonFrame, text="Internal Camera", command=lambda:setVid(0))
+btninternal = tk.Button(buttonFrame, text="Internal Camera", command=lambda:setVid(0), activebackground='#4444ff')
 btninternal.grid(row=0, column=1, sticky =tk.W+tk.E)
 lblIntInst = tk.Label(buttonFrame, text="Uses the system's internal camera", font=('Arial', 10))
 lblIntInst.grid(row=0, column=2, sticky =tk.W)
@@ -178,14 +178,13 @@ def on_leave(e):
 #External Camera GUI
 lblExternal= tk.Label(buttonFrame, text = "Use External Camera", font =('Arial', 13))
 lblExternal.grid(row=1, column=0, sticky =tk.W+tk.E)
-btnExternal = tk.Button(buttonFrame, text="External Camera", command=lambda:setVid(1))
+btnExternal = tk.Button(buttonFrame, text="External Camera", command=lambda:setVid(1), activebackground='#4444ff')
 btnExternal.grid(row=1, column=1, sticky =tk.W+tk.E)
 lblExtInst = tk.Label(buttonFrame, text="Uses an external camera", font=('Arial', 10))
-
-
+lblExtInst.grid(row=1, column=2, sticky =tk.W)
 lblExtInst.grid(row=1, column=2, sticky =tk.W)
 
-lblExtInst.grid(row=1, column=2, sticky =tk.W)
+
 def on_enter(e):
     btnExternal['background'] = 'grey'
 
@@ -199,7 +198,7 @@ lblConf.grid(row=2, column=0, sticky =tk.W+tk.E)
 sliderConf = Scale(buttonFrame, from_ = 1, to = 100, orient = HORIZONTAL, command=change)
 sliderConf.grid(row=2, column=1, sticky =tk.W+tk.E)
 check = sliderConf.get()
-if (check > 60):
+if (check > 60.0):
     root.messagebox.showinfo("Warning: A confidence threshold this high can slow down your computer, or even crash it")
 lblConfInst = tk.Label(buttonFrame, text="Confidence Threashold is how confident the\n algorithm is at identifing objects", font=('Arial', 10))
 lblConfInst.grid(row=2, column=2, sticky =tk.W)
