@@ -1,3 +1,4 @@
+
 import tkinter as tk
 import cv2
 from tkinter import *
@@ -20,6 +21,7 @@ def setVid(value):
 def change(val):
     global x
     x = int(val)/100
+
     return x
 
 #this is where we will let the user customize options
@@ -64,6 +66,7 @@ def start():
     
     countdown(y)
        
+
 
 # This is the orginial scrpit - do not change
 def default():
@@ -166,6 +169,11 @@ btninternal = tk.Button(buttonFrame, text="Internal Camera", command=lambda:setV
 btninternal.grid(row=0, column=1, sticky =tk.W+tk.E)
 lblIntInst = tk.Label(buttonFrame, text="Uses the system's internal camera", font=('Arial', 10))
 lblIntInst.grid(row=0, column=2, sticky =tk.W)
+def on_enter(e):
+    btninternal['background'] = 'grey'
+
+def on_leave(e):
+    btninternal['background'] = 'SystemButtonFace'
 
 #External Camera GUI
 lblExternal= tk.Label(buttonFrame, text = "Use External Camera", font =('Arial', 13))
@@ -173,13 +181,25 @@ lblExternal.grid(row=1, column=0, sticky =tk.W+tk.E)
 btnExternal = tk.Button(buttonFrame, text="External Camera", command=lambda:setVid(1))
 btnExternal.grid(row=1, column=1, sticky =tk.W+tk.E)
 lblExtInst = tk.Label(buttonFrame, text="Uses an external camera", font=('Arial', 10))
+<<<<<<< HEAD
 lblExtInst.grid(row=1, column=2, sticky =tk.W) """
+=======
+lblExtInst.grid(row=1, column=2, sticky =tk.W)
+def on_enter(e):
+    btnExternal['background'] = 'grey'
+
+def on_leave(e):
+    btnExternal['background'] = 'SystemButtonFace'
+>>>>>>> 5c82d8797b3cfa6f14f2b71daff24f7ecb71bc94
 
 #Confidence Threashold GUI
 lblConf = tk.Label(buttonFrame, text="Adjust Confidence Threashold", font=('Arial', 13))
 lblConf.grid(row=2, column=0, sticky =tk.W+tk.E)
 sliderConf = Scale(buttonFrame, from_ = 1, to = 100, orient = HORIZONTAL, command=change)
 sliderConf.grid(row=2, column=1, sticky =tk.W+tk.E)
+check = sliderConf.get()
+if (check > 60):
+    root.messagebox.showinfo("Warning: A confidence threshold this high can slow down your computer, or even crash it")
 lblConfInst = tk.Label(buttonFrame, text="Confidence Threashold is how confident the\n algorithm is at identifing objects", font=('Arial', 10))
 lblConfInst.grid(row=2, column=2, sticky =tk.W)
 
@@ -200,8 +220,18 @@ lblSpace2.grid(row=5, column=2, sticky =tk.W+tk.E)
 #Execution GUI
 btnCustom = tk.Button(buttonFrame, text="Custom Settings", command=lambda:start(), font=('Arial', 14))
 btnCustom.grid(row=6, column=0,sticky =tk.W+tk.E)
+def on_enter(e):
+    btnCustom['background'] = 'grey'
+
+def on_leave(e):
+    btnCustom['background'] = 'SystemButtonFace'
 btnDefault = tk.Button(buttonFrame, text="Default Settings", command=lambda:default(), font=('Arial', 14))
 btnDefault.grid(row=6, column=2, sticky =tk.W+tk.E)
+def on_enter(e):
+    btnDefault['background'] = 'grey'
+
+def on_leave(e):
+    btnDefault['background'] = 'SystemButtonFace'
 lblDefaultDes = tk.Label(buttonFrame, text = "Default Definitions: \nInput Device = Internal Camera \nConfidence Threashold = 50%\nTimer Duration = Infinite", font=('Arial', 13), anchor="w")
 lblDefaultDes.grid(row=7, column=2, sticky =tk.N)
 
