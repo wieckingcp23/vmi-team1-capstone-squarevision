@@ -133,13 +133,13 @@ label3 = tk.Label(lblFrame, text="CIS 490 Capstone | 2/14/23", font=('Arial', 12
 label3.grid(row=2, column=1, sticky =tk.W+tk.E)
 lblFrame.pack()
 
-image=Image.open('bogart.jpg')
+image=Image.open('vmi.png')
 image2=image.resize((75,75),Image.ANTIALIAS)
 newImage =ImageTk.PhotoImage(image2)
 lbl = tk.Label(lblFrame, image=newImage)
 lbl.grid(row=0, column=0, sticky =tk.W+tk.E)
 
-image3=Image.open('denis.jpg')
+image3=Image.open('vmi.png')
 image4=image3.resize((75, 75),Image.ANTIALIAS)
 newImage2 =ImageTk.PhotoImage(image4)
 lbl2 = tk.Label(lblFrame, image=newImage2)
@@ -162,7 +162,7 @@ rb2 = Radiobutton(buttonFrame, text = "External Camera", command=lambda:setVid(1
 rb2.grid(row=1, column=1, sticky =tk.W+tk.E)
 
 
-""" #Internal Camera GUI
+#Internal Camera GUI
 lblInternal = tk.Label(buttonFrame, text = "Use Internal Camera", font =('Arial', 13))
 lblInternal.grid(row=0, column=0, sticky =tk.W+tk.E)
 btninternal = tk.Button(buttonFrame, text="Internal Camera", command=lambda:setVid(0))
@@ -181,8 +181,9 @@ lblExternal.grid(row=1, column=0, sticky =tk.W+tk.E)
 btnExternal = tk.Button(buttonFrame, text="External Camera", command=lambda:setVid(1))
 btnExternal.grid(row=1, column=1, sticky =tk.W+tk.E)
 lblExtInst = tk.Label(buttonFrame, text="Uses an external camera", font=('Arial', 10))
-<<<<<<< HEAD
-lblExtInst.grid(row=1, column=2, sticky =tk.W) """
+
+
+lblExtInst.grid(row=1, column=2, sticky =tk.W)
 
 lblExtInst.grid(row=1, column=2, sticky =tk.W)
 def on_enter(e):
