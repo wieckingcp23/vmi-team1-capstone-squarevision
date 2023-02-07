@@ -183,14 +183,14 @@ btnExternal.grid(row=1, column=1, sticky =tk.W+tk.E)
 lblExtInst = tk.Label(buttonFrame, text="Uses an external camera", font=('Arial', 10))
 <<<<<<< HEAD
 lblExtInst.grid(row=1, column=2, sticky =tk.W) """
-=======
+
 lblExtInst.grid(row=1, column=2, sticky =tk.W)
 def on_enter(e):
     btnExternal['background'] = 'grey'
 
 def on_leave(e):
     btnExternal['background'] = 'SystemButtonFace'
->>>>>>> 5c82d8797b3cfa6f14f2b71daff24f7ecb71bc94
+
 
 #Confidence Threashold GUI
 lblConf = tk.Label(buttonFrame, text="Adjust Confidence Threashold", font=('Arial', 13))
