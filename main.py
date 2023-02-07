@@ -236,8 +236,8 @@ lblDefaultDes = tk.Label(buttonFrame, text = "Default Definitions: \nInput Devic
 lblDefaultDes.grid(row=7, column=2, sticky =tk.N)
 
 
-#buttonFrame.pack(fill = 'x')
-buttonFrame.pack()
+buttonFrame.pack(fill = 'x')
+#buttonFrame.pack()
 
 
 
