@@ -1,4 +1,3 @@
-
 import tkinter as tk
 import cv2
 from tkinter import *
