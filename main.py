@@ -208,7 +208,7 @@ lblTimer = tk.Label(buttonFrame, text = "Set Timer (in Seconds)", font=('Arial',
 lblTimer.grid(row=3, column=0,sticky =tk.W+tk.E)
 txtTimer = tk.Text(buttonFrame,height = .5, width = 1, font=('Arial', 13))
 txtTimer.grid(row=3, column=1,sticky =tk.W+tk.E)
-btnTimer = tk.Button(buttonFrame, text = "Enter", command=lambda: toInput())
+btnTimer = tk.Button(buttonFrame, text = "Enter", command=lambda: toInput(), activebackground='#4444ff')
 btnTimer.grid(row=3, column=2, sticky =tk.W+tk.E)
 
 #Spacer 
