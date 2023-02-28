@@ -124,17 +124,18 @@ lblFrame.columnconfigure(0, weight=1)
 lblFrame.columnconfigure(1, weight=1)
 lblFrame.columnconfigure(2, weight=1)
 
-label = tk.Label(lblFrame, text="Square Vision v.4.0", font=('Arial', 18))
+label = tk.Label(lblFrame, text="Square Vision v.5.0", font=('Arial', 18))
 label.grid(row=0, column=1, sticky =tk.W+tk.E)
-label2 = tk.Label(lblFrame, text="Sprint 4", font=('Arial', 14))
+label2 = tk.Label(lblFrame, text="Sprint 5", font=('Arial', 14))
 label2.grid(row=1, column=1, sticky =tk.W+tk.E)
-label3 = tk.Label(lblFrame, text="CIS 490 Capstone | 2/14/23", font=('Arial', 12))
+label3 = tk.Label(lblFrame, text="CIS 490 Capstone | 3/9/23", font=('Arial', 12))
 label3.grid(row=2, column=1, sticky =tk.W+tk.E)
 lblFrame.pack()
 
 image=Image.open('vmi.png')
 image2=image.resize((75,75),Image.ANTIALIAS)
 newImage =ImageTk.PhotoImage(image2)
+
 lbl = tk.Label(lblFrame, image=newImage)
 lbl.grid(row=0, column=0, sticky =tk.W+tk.E)
 
