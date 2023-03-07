@@ -43,17 +43,9 @@ def start():
     net.setInputSwapRB(True)
 
     def countdown(s):
-        
-
-
         total_seconds = int(s)
-
         startTime = 0
-
-
         while total_seconds > 0:
-
-
             currentTime = time.time()
             fps = 1/(currentTime - startTime)
             startTime = currentTime
@@ -79,10 +71,7 @@ def start():
             cv2.waitKey(1)
                
     countdown(y)
-       
-
-
-# This is the orginial scrpit - do not change
+    
 def default():
     cap = cv2.VideoCapture(0)
     cap.set(3, 640)
@@ -104,6 +93,8 @@ def default():
 
     startTime = 0
 
+    (success, image) = cap.read()
+
     while True:
         currentTime = time.time()
         fps = 1/(currentTime - startTime)
@@ -119,9 +110,6 @@ def default():
             for classIds, confidence, box in zip(classIds.flatten(), confs.flatten(), bbox):
                 cv2.rectangle(img, box, color = (0, 255, 0), thickness = 2)
                 cv2.putText(img, classNames[classIds-1].upper(), (box[0]+10, box[1]+30), cv2.FONT_HERSHEY_COMPLEX_SMALL,1,(0,255,0), 2)
-
-
-
 
         cv2.imshow("Square Vision", img)
         cv2.putText(img, "FPS: " + str(int(fps)), (20, 70), cv2.FONT_HERSHEY_PLAIN, 2, (0, 255, 0), 2)
