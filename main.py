@@ -43,8 +43,21 @@ def start():
     net.setInputSwapRB(True)
 
     def countdown(s):
+        
+
+
         total_seconds = int(s)
+
+        startTime = 0
+
+
         while total_seconds > 0:
+
+
+            currentTime = time.time()
+            fps = 1/(currentTime - startTime)
+            startTime = currentTime
+
             timer = datetime.timedelta(seconds = total_seconds)
             print(timer, end="\r")
             time.sleep(.001)
@@ -60,6 +73,8 @@ def start():
                     cv2.rectangle(img, box, color = (0, 255, 0), thickness = 2)
                     cv2.putText(img, classNames[classIds-1].upper(), (box[0]+10, box[1]+30), cv2.FONT_HERSHEY_COMPLEX_SMALL,1,(0,255,0), 2)
                     
+            
+            cv2.putText(img, "FPS: " + str(int(fps)), (20, 70), cv2.FONT_HERSHEY_PLAIN, 2, (0, 255, 0), 2)
             cv2.imshow("Square Vision", img)
             cv2.waitKey(1)
                
@@ -87,12 +102,17 @@ def default():
     net.setInputMean((127.5, 127.5, 127.5))
     net.setInputSwapRB(True)
 
+    startTime = 0
 
     while True:
+        currentTime = time.time()
+        fps = 1/(currentTime - startTime)
+        startTime = currentTime
         success, img = cap.read()
+
         #confidence threashold = how sure the algo is that an object is an object
         classIds, confs, bbox = net.detect(img, confThreshold= 0.5)
-        print(classIds, bbox)
+        print(classIds)
 
         if len(classIds) != 0:
 
@@ -104,16 +124,15 @@ def default():
 
 
         cv2.imshow("Square Vision", img)
+        cv2.putText(img, "FPS: " + str(int(fps)), (20, 70), cv2.FONT_HERSHEY_PLAIN, 2, (0, 255, 0), 2)
+        key = cv2.waitKey(1) & 0xFF
+        if key == ord("q"):
+            break
+        (success, image) = cap.read()
+    
+    cv2.destroyAllWindows()
 
-        cv2.destroyAllWindows()
-        cv2.waitKey(1)
-#
-#
-#
-#
-#
-#
-#
+
 #GUI Stuff
 root = tk.Tk()
 root.geometry("900x500")
