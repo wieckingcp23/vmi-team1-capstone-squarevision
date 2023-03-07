@@ -62,7 +62,7 @@ def start():
                     
             cv2.imshow("Square Vision", img)
             cv2.waitKey(1)
-    
+               
     countdown(y)
        
 
@@ -104,6 +104,8 @@ def default():
 
 
         cv2.imshow("Square Vision", img)
+
+        cv2.destroyAllWindows()
         cv2.waitKey(1)
 #
 #
