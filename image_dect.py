@@ -1,6 +1,6 @@
 import cv2
 
-img = cv2.imread('vmi.png')
+img = cv2.imread('group.jpg')
 
 classNames = []
 classFile = 'coco.names'

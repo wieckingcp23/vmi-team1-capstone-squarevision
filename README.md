@@ -4,6 +4,7 @@ Uses OpenCV
 
 File Descriptions:
 main.py -  the real-time object recognition using OpenCV 
+image_dect.py - recognizes objects in still images using OpenCV - basis for the main.py code
 coco.names - the list of objects that OpenCV can recognize (DO NOT EDIT) 
 frozen_inference_graph.pb - trained OpenCV algorithim (DO NOT EDIT) 
 ssd_mobilenet_v3_large_coco_2020_01_14.pbtxt - runs the OpenCV algorithim (DO NOT EDIT)
