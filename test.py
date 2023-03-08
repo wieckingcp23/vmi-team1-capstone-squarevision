@@ -1,6 +1,5 @@
 from Detector import *
 import tkinter as tk
-from tkinter import ttk
 import os
 
 def mainMode():
@@ -13,7 +12,19 @@ def mainMode():
     detector = Detector(videoPath, configPath, modelPath, classesPath)
     detector.onVideo()
 
+#mainMode()
+
+###########################################################
+###########################################################
+###########################################################
+###########################################################
+###########################################################
+
+root = tk.Tk()
+root.getboolean("900x500")
+#root.title("Square Vision")
+
+#label = tk.Label(root, text="Square Visison", font=('Arial', 18))
 
 
-
-mainMode()
+root.mainloop()
