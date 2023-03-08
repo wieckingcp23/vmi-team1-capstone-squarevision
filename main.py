@@ -1,6 +1,7 @@
 from Detector import *
 import tkinter as tk
 from tkinter import *
+import customtkinter
 import os
 
 #Sets the input camera device + updates GUI
