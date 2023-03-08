@@ -29,6 +29,13 @@ class Detector:
         self.colorList = np.random.uniform(low = 0, high = 255,size=(len(self.classesList), 3))
         #print(self.classesList)
     
+    
+
+
+    ## rename to represent default settings
+    # Internal Camera
+    # Confidence Threashold = 50%
+    # Runs until user presses "q"
     def onVideo(self):
         cap = cv2.VideoCapture(self.videoPath)
 
@@ -52,7 +59,7 @@ class Detector:
             confidences = list(np.array(confidences).reshape(1, -1)[0])
             confidences = list(map(float, confidences))
 
-            bboxIdx = cv2.dnn.NMSBoxes(bboxes, confidences, score_threshold = 0.5, nms_threshold = 0.2)
+            bboxIdx = cv2.dnn.NMSBoxes(bboxes, confidences, score_threshold = 0.5, nms_threshold = 0.4)
 
             if len(bboxIdx) != 0:
                 for i in range(0, len(bboxIdx)):
@@ -85,7 +92,7 @@ class Detector:
 
                     
             cv2.putText(image, "FPS: " + str(int(fps)), (20, 40), cv2.FONT_HERSHEY_PLAIN, 2, (0, 255,0), 2)
-            cv2.imshow("Result", image)
+            cv2.imshow("Square Vision", image)
             key = cv2.waitKey(1) & 0xFF
             if key == ord("q"):
                 break

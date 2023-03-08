@@ -1,7 +1,9 @@
 from Detector import *
+import tkinter as tk
+from tkinter import ttk
 import os
 
-def main():
+def mainMode():
     videoPath = 0
 
     configPath = os.path.join("model_data", "ssd_mobilenet_v3_large_coco_2020_01_14.pbtxt")
@@ -11,5 +13,7 @@ def main():
     detector = Detector(videoPath, configPath, modelPath, classesPath)
     detector.onVideo()
 
-if __name__ == '__main__':
-    main()
+
+
+
+mainMode()
