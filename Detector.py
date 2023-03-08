@@ -59,7 +59,7 @@ class Detector:
             confidences = list(np.array(confidences).reshape(1, -1)[0])
             confidences = list(map(float, confidences))
 
-            bboxIdx = cv2.dnn.NMSBoxes(bboxes, confidences, score_threshold = 0.5, nms_threshold = 0.4)
+            bboxIdx = cv2.dnn.NMSBoxes(bboxes, confidences, score_threshold = 0.5, nms_threshold = 0.2)
 
             if len(bboxIdx) != 0:
                 for i in range(0, len(bboxIdx)):

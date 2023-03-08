@@ -140,7 +140,7 @@ label2.grid(row=1, column=1, sticky =tk.W+tk.E)
 label3 = tk.Label(lblFrame, text="CIS 490 Capstone | 3/9/23", font=('Arial', 12))
 label3.grid(row=2, column=1, sticky =tk.W+tk.E)
 lblFrame.pack()
-
+""" 
 image=Image.open('vmi.png')
 image2=image.resize((75,75),Image.ANTIALIAS)
 newImage =ImageTk.PhotoImage(image2)
@@ -152,7 +152,7 @@ image3=Image.open('vmi.png')
 image4=image3.resize((75, 75),Image.ANTIALIAS)
 newImage2 =ImageTk.PhotoImage(image4)
 lbl2 = tk.Label(lblFrame, image=newImage2)
-lbl2.grid(row=0, column=2, sticky =tk.W+tk.E)
+lbl2.grid(row=0, column=2, sticky =tk.W+tk.E) """
 
 
 buttonFrame = tk.Frame(root)
