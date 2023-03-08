@@ -1,6 +1,12 @@
 from Detector import *
 import tkinter as tk
+from tkinter import *
 import os
+
+x = 1
+
+def print_selection():
+    lblRBOut.config(text='you have selected ' + var.get())
 
 def mainMode():
     videoPath = 0
@@ -11,6 +17,16 @@ def mainMode():
 
     detector = Detector(videoPath, configPath, modelPath, classesPath)
     detector.onVideo()
+
+def customMode():
+    videoPath = 0
+
+    configPath = os.path.join("model_data", "ssd_mobilenet_v3_large_coco_2020_01_14.pbtxt")
+    modelPath = os.path.join("model_data", "frozen_inference_graph.pb")
+    classesPath = os.path.join("model_data", "coco.names")
+
+    detector = Detector(videoPath, configPath, modelPath, classesPath)
+    detector.customVideo(x)
 
 #mainMode()
 
@@ -24,6 +40,7 @@ def mainMode():
 root = tk.Tk()
 root.geometry("900x500")
 root.title("Square Vision")
+var = tk.StringVar()
 
 
 #Frame Grid
@@ -39,19 +56,10 @@ label2.grid(row=1, column=1, sticky =tk.W+tk.E)
 label3 = tk.Label(lblFrame, text="CIS 490 Capstone | 3/9/23", font=('Arial', 12))
 label3.grid(row=2, column=1, sticky =tk.W+tk.E)
 lblFrame.pack()
-""" 
-image=Image.open('vmi.png')
-image2=image.resize((75,75),Image.ANTIALIAS)
-newImage =ImageTk.PhotoImage(image2)
 
-lbl = tk.Label(lblFrame, image=newImage)
-lbl.grid(row=0, column=0, sticky =tk.W+tk.E)
-
-image3=Image.open('vmi.png')
-image4=image3.resize((75, 75),Image.ANTIALIAS)
-newImage2 =ImageTk.PhotoImage(image4)
-lbl2 = tk.Label(lblFrame, image=newImage2)
-lbl2.grid(row=0, column=2, sticky =tk.W+tk.E) """
+##########################################
+#    Buttons 
+##########################################
 
 
 buttonFrame = tk.Frame(root)
@@ -60,47 +68,22 @@ buttonFrame.columnconfigure(1, weight=1)
 buttonFrame.columnconfigure(2, weight=1)
 buttonFrame.columnconfigure(3, weight=1)
 
+# Camera as Radiobuttons
+lbl4 = tk.Label(buttonFrame, text="Select Camera",font=('Arial', 11))
+lbl4.grid(row=0, column=0, sticky =tk.E)
+r1 = tk.Radiobutton(buttonFrame, text='Internal Camera', variable=var, value='A', command=print_selection)
+r1.grid(row=0, column=1, sticky =tk.W+tk.E)
+r2 = tk.Radiobutton(buttonFrame, text='External Camera', variable=var, value='B', command=print_selection)
+r2.grid(row=1, column=1, sticky =tk.W+tk.E)
 
-
-#Internal Camera GUI
-lblInternal = tk.Label(buttonFrame, text = "Use Internal Camera", font =('Arial', 13))
-lblInternal.grid(row=0, column=0, sticky =tk.W+tk.E)
-btninternal = tk.Button(buttonFrame, text="Internal Camera",  activebackground='#4444ff')
-btninternal.grid(row=0, column=1, sticky =tk.W+tk.E)
-lblIntInst = tk.Label(buttonFrame, text="Uses the system's internal camera", font=('Arial', 10))
-lblIntInst.grid(row=0, column=2, sticky =tk.W)
-def on_enter(e):
-    btninternal['background'] = 'grey'
-
-def on_leave(e):
-    btninternal['background'] = 'SystemButtonFace'
-
-#External Camera GUI
-lblExternal= tk.Label(buttonFrame, text = "Use External Camera", font =('Arial', 13))
-lblExternal.grid(row=1, column=0, sticky =tk.W+tk.E)
-btnExternal = tk.Button(buttonFrame, text="External Camera", activebackground='#4444ff')
-btnExternal.grid(row=1, column=1, sticky =tk.W+tk.E)
-lblExtInst = tk.Label(buttonFrame, text="Uses an external camera", font=('Arial', 10))
-lblExtInst.grid(row=1, column=2, sticky =tk.W)
-lblExtInst.grid(row=1, column=2, sticky =tk.W)
-
-
-def on_enter(e):
-    btnExternal['background'] = 'grey'
-
-def on_leave(e):
-    btnExternal['background'] = 'SystemButtonFace'
+lblRBOut = tk.Label(root, bg='white', width=20, text='empty')
+lblRBOut.grid(row=0, column=2, sticky =tk.W+tk.E)
 
 
 
 
-#timer GUI
-lblTimer = tk.Label(buttonFrame, text = "Set Timer (in Seconds)", font=('Arial', 13))
-lblTimer.grid(row=3, column=0,sticky =tk.W+tk.E)
-txtTimer = tk.Text(buttonFrame,height = .5, width = 1, font=('Arial', 13))
-txtTimer.grid(row=3, column=1,sticky =tk.W+tk.E)
-btnTimer = tk.Button(buttonFrame, text = "Enter", activebackground='#4444ff')
-btnTimer.grid(row=3, column=2, sticky =tk.W+tk.E)
+
+
 
 #Spacer 
 lblSpace = tk.Label(buttonFrame)
@@ -127,8 +110,8 @@ lblDefaultDes = tk.Label(buttonFrame, text = "Default Definitions: \nInput Devic
 lblDefaultDes.grid(row=7, column=2, sticky =tk.N)
 
 
-buttonFrame.pack(fill = 'x')
-#buttonFrame.pack()
+#buttonFrame.pack(fill = 'x')
+buttonFrame.pack()
 
 
 
