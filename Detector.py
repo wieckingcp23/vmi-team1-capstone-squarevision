@@ -92,4 +92,3 @@ class Detector:
 
             (success, image) = cap.read()
         cv2.destroyAllWindows()
-
