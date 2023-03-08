@@ -100,15 +100,17 @@ class Detector:
             (success, image) = cap.read()
         cv2.destroyAllWindows()
 
-    ## rename to represent default settings
-    # Internal Camera
-    # Confidence Threashold = 50%
+    ## rename to Represent Custom Settings
+    # Internal or External Camera
+    # Confidence Threashold = custom via text box
+    # NMS Threashold = custom via textbox
     # Runs until user presses "q"
-    def customVideo(self, x):
-        cap = cv2.VideoCapture(x)
+
+    def customVideo(self, vid, conf, nms):
+        cap = cv2.VideoCapture(vid)
 
         if(cap.isOpened() == False):
-            print("Error Opening File")
+            print("Error: No External Camera Detected")
             return
         
         (success, image) = cap.read()
@@ -121,13 +123,13 @@ class Detector:
             startTime = currentTime
 
 
-            classLabelIDs, confidences, bboxes = self.net.detect(image, confThreshold = 0.5)
+            classLabelIDs, confidences, bboxes = self.net.detect(image, confThreshold = conf)
 
             bboxes = list(bboxes)
             confidences = list(np.array(confidences).reshape(1, -1)[0])
             confidences = list(map(float, confidences))
 
-            bboxIdx = cv2.dnn.NMSBoxes(bboxes, confidences, score_threshold = 0.5, nms_threshold = 0.2)
+            bboxIdx = cv2.dnn.NMSBoxes(bboxes, confidences, score_threshold = 0.5, nms_threshold = nms)
 
             if len(bboxIdx) != 0:
                 for i in range(0, len(bboxIdx)):
