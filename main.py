@@ -125,7 +125,7 @@ label2 = customtkinter.CTkLabel(lblFrame, text="Sprint 5 | Team 1", font=('Arial
 label2.grid(row=1, column=1, sticky =tk.W+tk.E)
 label3 = customtkinter.CTkLabel(lblFrame, text="CIS 490 Capstone | 3/9/23", font=('Arial', 15))
 label3.grid(row=2, column=1, sticky =tk.W+tk.E)
-label4 = customtkinter.CTkLabel(lblFrame, text="Welcome to Square vision, an object regcogniton software! \nPlease select how you would like to execute the program", 
+label4 = customtkinter.CTkLabel(lblFrame, text="Welcome to Square Vision, an object regcogniton software! \nPlease select how you would like to execute the program", 
                   font=('Arial', 15))
 label4.grid(row=3, column=1, sticky =tk.W+tk.E)
 lbl5 = customtkinter.CTkLabel(lblFrame, text = "")
