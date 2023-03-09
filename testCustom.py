@@ -71,7 +71,8 @@ def nms():
                 return nms
     
     except ValueError:
-        ansNMS.configure(text = "ERROR: " + txtNMS.get() + " is an invalid input", font=('Arial bold', 14))
+        ansNMS.configure(text = "ERROR: " + txtNMS.get() + " is an invalid input", 
+                         font=('Arial bold', 14), fg_color='red', corner_radius = 10, text_color = "black")
 
 #Runs the default settings
 def mainMode():
@@ -102,7 +103,7 @@ def customMode():
 ###########################################################
 
 #GUI Stuff
-customtkinter.set_appearance_mode("dark")
+customtkinter.set_appearance_mode("system")
 customtkinter.set_default_color_theme("blue")
 root = customtkinter.CTk()
 root.geometry("775x500")
@@ -113,20 +114,23 @@ customtkinter.set_default_color_theme("dark-blue")
 #Frame Grid
 lblFrame = customtkinter.CTkFrame(master=root, width=800, height=500)
 lblFrame.grid(row=0, column=1, padx=20)
-#lblFrame = tk.Frame(root)
-
 lblFrame.columnconfigure(0, weight=7)
 lblFrame.columnconfigure(1, weight=7)
 lblFrame.columnconfigure(2, weight=7)
-label = customtkinter.CTkLabel(lblFrame, text="Square Vision 2D v.5.0", font=('Arial', 18))
+
+
+label = customtkinter.CTkLabel(lblFrame, text="Square Vision 2D v.5.0", font=('Arial bold', 20))
 label.grid(row=0, column=1, sticky =tk.W+tk.E)
-label2 = customtkinter.CTkLabel(lblFrame, text="Sprint 5 | Team 1", font=('Arial', 14))
+label2 = customtkinter.CTkLabel(lblFrame, text="Sprint 5 | Team 1", font=('Arial', 17))
 label2.grid(row=1, column=1, sticky =tk.W+tk.E)
-label3 = customtkinter.CTkLabel(lblFrame, text="CIS 490 Capstone | 3/9/23", font=('Arial', 12))
+label3 = customtkinter.CTkLabel(lblFrame, text="CIS 490 Capstone | 3/9/23", font=('Arial', 15))
 label3.grid(row=2, column=1, sticky =tk.W+tk.E)
 label4 = customtkinter.CTkLabel(lblFrame, text="Welcome to Square vision, an object regcogniton software! \nPlease select how you would like to execute the program", 
-                  font=('Arial', 13))
+                  font=('Arial', 15))
 label4.grid(row=3, column=1, sticky =tk.W+tk.E)
+lbl5 = customtkinter.CTkLabel(lblFrame, text = "")
+lbl5.grid(row=4, column =1)
+
 lblFrame.pack(fill="both")
 
 ##########################################
@@ -158,7 +162,7 @@ lblConfTxt = customtkinter.CTkLabel(buttonFrame, text = "Set Confidence Threasho
 lblConfTxt.grid(row=3, column=0,sticky =tk.W+tk.E, padx=20, pady=0)
 txtConf = customtkinter.CTkEntry(buttonFrame)
 txtConf.grid(row=3, column=1,sticky =tk.W+tk.E, padx=20, pady=0)
-btnConf = customtkinter.CTkButton(buttonFrame, text = "Confirm Confidence Threashold", command=number,)
+btnConf = customtkinter.CTkButton(buttonFrame, text = "Confirm Confidence", command=number,)
 btnConf.grid(row=4, column=1, sticky =tk.W+tk.E, padx=20, pady=10)
 answer = customtkinter.CTkLabel(buttonFrame, text="Determine how confidently the algorithm \ncan identify objects", font=('Arial', 14))
 answer.grid(row=3, column=2, sticky =tk.W+tk.E, padx=15, pady=0)
@@ -170,7 +174,7 @@ lblConfNMS = customtkinter.CTkLabel(buttonFrame, text = "Object Overlap Threasho
 lblConfNMS.grid(row=5, column=0,sticky =tk.W+tk.E, padx=20, pady=0)
 txtNMS = customtkinter.CTkEntry(buttonFrame)
 txtNMS.grid(row=5, column=1,sticky =tk.W+tk.E, padx=20, pady=0)
-btnNMS = customtkinter.CTkButton(buttonFrame, text = "Confirm NMS Threashold", command=nms)
+btnNMS = customtkinter.CTkButton(buttonFrame, text = "Confirm NMS", command=nms)
 btnNMS.grid(row=6, column=1, sticky =tk.W+tk.E, padx=20, pady=0)
 ansNMS = customtkinter.CTkLabel(buttonFrame, text="Determine close object recongnition clarity", font=('Arial', 14))
 ansNMS.grid(row=5, column=2, sticky =tk.W+tk.E, padx=20, pady=10)
@@ -189,9 +193,6 @@ btnDefault.grid(row=9, column=2, sticky =tk.W+tk.E)
 lblDefaultDes = tk.Label(buttonFrame, text = "Default Definitions: \nInput Device = Internal Camera \nConfidence Threashold = 50% \nNMS Threashold = 20%", font=('Arial', 13), anchor="w")
 lblDefaultDes.grid(row=8, column=2, sticky =tk.N)
 
-#buttonFrame.pack(fill = 'y')
+
 buttonFrame.pack(fill = "both")
-
-
-
 root.mainloop()

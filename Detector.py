@@ -29,9 +29,6 @@ class Detector:
         self.colorList = np.random.uniform(low = 0, high = 255,size=(len(self.classesList), 3))
         #print(self.classesList)
     
-    
-
-
     ## rename to represent default settings
     # Internal Camera
     # Confidence Threashold = 50%
@@ -91,7 +88,8 @@ class Detector:
                     cv2.line(image, (x + w, y + h), (x + w, y + h - lineWidth), classColor, thickness =5)
 
                     
-            cv2.putText(image, "FPS: " + str(int(fps)), (20, 40), cv2.FONT_HERSHEY_PLAIN, 2, (0, 255,0), 2)
+            cv2.putText(image, "FPS: " + str(int(fps)), (10, 40), cv2.FONT_HERSHEY_PLAIN, 2, (0, 255,0), 2)
+            cv2.putText(image, "Press 'q' to exit", (10, 450), cv2.FONT_HERSHEY_PLAIN, 2, (0, 255,0), 2)
             cv2.imshow("Square Vision", image)
             key = cv2.waitKey(1) & 0xFF
             if key == ord("q"):
@@ -162,6 +160,7 @@ class Detector:
 
                     
             cv2.putText(image, "FPS: " + str(int(fps)), (20, 40), cv2.FONT_HERSHEY_PLAIN, 2, (0, 255,0), 2)
+            cv2.putText(image, "Press 'q' to exit", (10, 450), cv2.FONT_HERSHEY_PLAIN, 2, (0, 255,0), 2)
             cv2.imshow("Square Vision", image)
             key = cv2.waitKey(1) & 0xFF
             if key == ord("q"):
