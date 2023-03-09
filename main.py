@@ -27,7 +27,7 @@ def number():
             answer.configure(text = "ERROR: Confidence Threashold =  " + txtConf.get() + "\n This is too high", 
                              font=('Arial bold', 14), fg_color='red', corner_radius = 10)
         else:
-            if (75 <= y <= 100):
+            if (65 <= y <= 100):
                 answer.configure(text = "Warning: Confidence Threashold = " + txtConf.get() + " \nThe rate of objects successfully \nidentified will be severly limited", 
                                  font=('Arial bold', 14), fg_color='yellow', corner_radius = 10, text_color = "black")
                 return conf
