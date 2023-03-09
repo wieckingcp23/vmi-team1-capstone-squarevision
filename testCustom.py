@@ -13,7 +13,7 @@ def setVid(x):
         selection += "Internal Camera"
     if (x == 1):
         selection += "External Camera"
-    lblRBOut.configure(text = selection)
+    lblRBOut.configure(text = selection, fg_color='lime', corner_radius = 10, text_color = "black")
 
 def number():
     try:
@@ -21,23 +21,28 @@ def number():
         global conf
         conf = int(y)/100
         if (y <= 0):
-            answer.configure(text = "Confidence Threashold of " + txtConf.get() + " is too low", font=('Arial bold', 14))
+            answer.configure(text = "ERROR: Confidence Threashold = " + txtConf.get() + "\nThis is too low", 
+                             font=('Arial bold', 14), fg_color='red', corner_radius = 10)
         elif (y > 100):
-            answer.configure(text = "Confidence Threashold of " + txtConf.get() + " is too high", font=('Arial bold', 14))
+            answer.configure(text = "ERROR: Confidence Threashold =  " + txtConf.get() + "\n This is too high", 
+                             font=('Arial bold', 14), fg_color='red', corner_radius = 10)
         else:
             if (75 <= y <= 100):
-                answer.configure(text = "Warning: Confidence Threashold = " + txtConf.get() + " \nThis can limit the number of objects recognized", font=('Arial bold', 14))
+                answer.configure(text = "Warning: Confidence Threashold = " + txtConf.get() + " \nThe rate of objects successfully \nidentified will be severly limited", 
+                                 font=('Arial bold', 14), fg_color='yellow', corner_radius = 10, text_color = "black")
                 return conf
             elif(1 <= y <= 25):
                 answer.configure(text = "Warning: Confidence Threashold = " + txtConf.get() + " \nThis can result in excessive feedback", 
-                               font=('Arial bold', 14))
+                               font=('Arial bold', 14), fg_color='yellow', corner_radius = 10, text_color = "black")
                 return conf
             else:
-                answer.configure(text = "Confidence Threashold = " + txtConf.get(),  font=('Arial', 14))
+                answer.configure(text = "Confidence Threashold = " + txtConf.get(),  
+                                 font=('Arial', 14), fg_color='lime', corner_radius = 10, text_color = "black")
                 return conf
 
     except ValueError:
-        answer.configure(text = "ERROR: " + txtConf.get() + " is an invalid input", font=('Arial bold', 14))
+        answer.configure(text = "ERROR: " + txtConf.get() + " is an invalid input", 
+                         font=('Arial bold', 14), fg_color='red', corner_radius = 10)
 
 def nms():
     try:
@@ -46,22 +51,23 @@ def nms():
         nms = int(p)/100
         print(nms)
         if (p <= 0):
-            ansNMS.configure(text = "A NMS Threashold of " + txtNMS.get() + " is too low",
-                           font=('Arial bold', 14))
+            ansNMS.configure(text = "A NMS Threashold of " + txtNMS.get() + " is too low", 
+                             font=('Arial bold', 14), fg_color='red', corner_radius = 10, text_color = "black")
         elif (p > 100):
             ansNMS.configure(text = "A NMS Threashold of " + txtNMS.get() + " is too high",
-                          font=('Arial bold', 14))
+                          font=('Arial bold', 14), fg_color='red', corner_radius = 10, text_color = "black")
         else:
             if (45 <= p <= 100):
-                ansNMS.configure(text = "Warning: NMS Threashold = " + txtNMS.get() + " \nThis will limit the identification of close objects", 
-                               font=('Arial bold', 14))
+                ansNMS.configure(text = "Warning: NMS Threashold = " + txtNMS.get() + " \nThis can result in excessive \nobject tagging", 
+                               font=('Arial bold', 14), fg_color='yellow', corner_radius = 10, text_color = "black")
                 return nms
             elif(1 <= p <= 10):
-                ansNMS.configure(text = "Warning: NMS Threashold = " + txtNMS.get() + " \nThis can result in excessive object tagging", 
-                               font=('Arial bold', 14))
+                ansNMS.configure(text = "Warning: NMS Threashold = " + txtNMS.get() + " \nThis will limit the identification \nof objects that are close together", 
+                               font=('Arial bold', 14), fg_color='yellow', corner_radius = 10, text_color = "black")
                 return nms
             else:
-                ansNMS.configure(text = "NMS Threashold = " + txtNMS.get(), font=('Arial', 14))
+                ansNMS.configure(text = "NMS Threashold = " + txtNMS.get(), 
+                                 font=('Arial', 14), fg_color='lime', corner_radius = 10, text_color = "black")
                 return nms
     
     except ValueError:
@@ -96,40 +102,41 @@ def customMode():
 ###########################################################
 
 #GUI Stuff
+customtkinter.set_appearance_mode("dark")
+customtkinter.set_default_color_theme("blue")
 root = customtkinter.CTk()
-root.geometry("900x500")
+root.geometry("775x500")
 root.title("Square Vision")
 var = tk.StringVar()
-#Frame Grid
-lblFrame = tk.Frame(root)
-lblFrame.columnconfigure(0, weight=1)
-lblFrame.columnconfigure(1, weight=1)
-lblFrame.columnconfigure(2, weight=1)
+customtkinter.set_default_color_theme("dark-blue")
 
+#Frame Grid
+lblFrame = customtkinter.CTkFrame(master=root, width=800, height=500)
+lblFrame.grid(row=0, column=1, padx=20)
+#lblFrame = tk.Frame(root)
+
+lblFrame.columnconfigure(0, weight=7)
+lblFrame.columnconfigure(1, weight=7)
+lblFrame.columnconfigure(2, weight=7)
 label = customtkinter.CTkLabel(lblFrame, text="Square Vision 2D v.5.0", font=('Arial', 18))
 label.grid(row=0, column=1, sticky =tk.W+tk.E)
 label2 = customtkinter.CTkLabel(lblFrame, text="Sprint 5 | Team 1", font=('Arial', 14))
 label2.grid(row=1, column=1, sticky =tk.W+tk.E)
 label3 = customtkinter.CTkLabel(lblFrame, text="CIS 490 Capstone | 3/9/23", font=('Arial', 12))
 label3.grid(row=2, column=1, sticky =tk.W+tk.E)
-label4 = customtkinter.CTkLabel(lblFrame, text="Welcome to Square vision, an object regcogniton software \nplease select how you would like to execute the program", 
+label4 = customtkinter.CTkLabel(lblFrame, text="Welcome to Square vision, an object regcogniton software! \nPlease select how you would like to execute the program", 
                   font=('Arial', 13))
 label4.grid(row=3, column=1, sticky =tk.W+tk.E)
-label5 = tk.Label(lblFrame, text="", font=('Arial', 10))
-label5.grid(row=4, column=1, sticky =tk.W+tk.E)
-
-
 lblFrame.pack(fill="both")
 
 ##########################################
 # BUTTON PANE
 ##########################################
-buttonFrame = tk.Frame(root)
-buttonFrame.columnconfigure(0, weight=1)
-buttonFrame.columnconfigure(1, weight=1)
-buttonFrame.columnconfigure(2, weight=1)
-buttonFrame.columnconfigure(3, weight=1)
-
+buttonFrame = customtkinter.CTkFrame(master=root, width=900, height=500)
+buttonFrame.columnconfigure(0, weight=7)
+buttonFrame.columnconfigure(1, weight=7)
+buttonFrame.columnconfigure(2, weight=7)
+buttonFrame.columnconfigure(3, weight=7)
 
 ##########################################
 # CAMERA SELECTION
@@ -165,35 +172,25 @@ txtNMS = customtkinter.CTkEntry(buttonFrame)
 txtNMS.grid(row=5, column=1,sticky =tk.W+tk.E, padx=20, pady=0)
 btnNMS = customtkinter.CTkButton(buttonFrame, text = "Confirm NMS Threashold", command=nms)
 btnNMS.grid(row=6, column=1, sticky =tk.W+tk.E, padx=20, pady=0)
-ansNMS = tk.Label(buttonFrame, text="Determine close object recongnition clarity", font=('Arial', 14))
+ansNMS = customtkinter.CTkLabel(buttonFrame, text="Determine close object recongnition clarity", font=('Arial', 14))
 ansNMS.grid(row=5, column=2, sticky =tk.W+tk.E, padx=20, pady=10)
 
-##########################################
-# SPACER
-##########################################
-spacer = customtkinter.CTkLabel(buttonFrame, text="Select Execution Method", font=('Arial', 14), bg_color="white")
-spacer.grid(row=7, column=1, sticky =tk.W+tk.E, pady = 10)
-spacer1 = customtkinter.CTkLabel(buttonFrame, text="", bg_color="white")
-spacer1.grid(row=7, column=0, sticky =tk.W+tk.E)
-spacer2 = customtkinter.CTkLabel(buttonFrame, text="",bg_color="white")
-spacer2.grid(row=7, column=2, sticky =tk.W+tk.E)
+
 
 ##########################################
 # EXECUTION
 ##########################################
-btnCustom = customtkinter.CTkButton(buttonFrame, text="Custom Settings", command=lambda:customMode(), font=('Arial', 12))
-btnCustom.grid(row=8, column=0,sticky =tk.W+tk.E)
-btnDefault = customtkinter.CTkButton(buttonFrame, text="Default Settings", command=lambda:mainMode(), font=('Arial', 12))
-btnDefault.grid(row=8, column=2, sticky =tk.W+tk.E)
-lblDefaultDes = tk.Label(buttonFrame, text = "Default Definitions: \nInput Device = Internal Camera \nConfidence Threashold = 50%", font=('Arial', 13), anchor="w")
-lblDefaultDes.grid(row=9, column=2, sticky =tk.N)
-
-
-
-
+btnCustom = customtkinter.CTkButton(buttonFrame, text="Custom Settings", command=lambda:customMode(), font=('Arial bold', 12))
+btnCustom.grid(row=9, column=0,sticky =tk.W+tk.E)
+lblCustomDes= tk.Label(buttonFrame, text = "\nThis will execute the program \nin the configuration specified above\n", font=('Arial', 13), anchor="w")
+lblCustomDes.grid(row=8, column=0, sticky =tk.N)
+btnDefault = customtkinter.CTkButton(buttonFrame, text="Default Settings", command=lambda:mainMode(), font=('Arial bold', 12))
+btnDefault.grid(row=9, column=2, sticky =tk.W+tk.E)
+lblDefaultDes = tk.Label(buttonFrame, text = "Default Definitions: \nInput Device = Internal Camera \nConfidence Threashold = 50% \nNMS Threashold = 20%", font=('Arial', 13), anchor="w")
+lblDefaultDes.grid(row=8, column=2, sticky =tk.N)
 
 #buttonFrame.pack(fill = 'y')
-buttonFrame.pack()
+buttonFrame.pack(fill = "both")
 
 
 
