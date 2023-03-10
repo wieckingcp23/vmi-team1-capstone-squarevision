@@ -15,7 +15,7 @@ def setVid(x):
         selection += "External Camera"
     lblRBOut.configure(text = selection, fg_color='lime', corner_radius = 10, text_color = "black")
 
-def number():
+def conf():
     try:
         y = int(txtConf.get())
         global conf
@@ -162,7 +162,7 @@ lblConfTxt = customtkinter.CTkLabel(buttonFrame, text = "Set Confidence Threasho
 lblConfTxt.grid(row=3, column=0,sticky =tk.W+tk.E, padx=20, pady=0)
 txtConf = customtkinter.CTkEntry(buttonFrame)
 txtConf.grid(row=3, column=1,sticky =tk.W+tk.E, padx=20, pady=0)
-btnConf = customtkinter.CTkButton(buttonFrame, text = "Confirm Confidence", command=number,)
+btnConf = customtkinter.CTkButton(buttonFrame, text = "Confirm Confidence", command=conf,)
 btnConf.grid(row=4, column=1, sticky =tk.W+tk.E, padx=20, pady=10)
 answer = customtkinter.CTkLabel(buttonFrame, text="Determine how confidently the algorithm \ncan identify objects", font=('Arial', 14))
 answer.grid(row=3, column=2, sticky =tk.W+tk.E, padx=15, pady=0)
