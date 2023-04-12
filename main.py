@@ -96,6 +96,13 @@ def customMode():
     detector = Detector(videoPath, configPath, modelPath, classesPath)
     detector.customVideo(vid, conf, nms)
 
+def help():
+    newWindow = Toplevel(root)
+    newWindow.title("Square Vision Help")
+    newWindow.geometry("400x400")
+    Label(newWindow, text = "This is a new window").pack()
+
+
 ###########################################################
 ###########################################################
 ###########################################################
@@ -106,7 +113,7 @@ def customMode():
 customtkinter.set_appearance_mode("system")
 customtkinter.set_default_color_theme("blue")
 root = customtkinter.CTk()
-root.geometry("775x500")
+root.geometry("900x600")
 root.title("Square Vision")
 var = tk.StringVar()
 customtkinter.set_default_color_theme("dark-blue")
@@ -119,17 +126,18 @@ lblFrame.columnconfigure(1, weight=7)
 lblFrame.columnconfigure(2, weight=7)
 
 
-label = customtkinter.CTkLabel(lblFrame, text="Square Vision 2D v.5.0", font=('Arial bold', 20))
+label = customtkinter.CTkLabel(lblFrame, text="Square Vision 2D v. 7.0", font=('Arial bold', 20))
 label.grid(row=0, column=1, sticky =tk.W+tk.E)
-label2 = customtkinter.CTkLabel(lblFrame, text="Sprint 5 | Team 1", font=('Arial', 17))
-label2.grid(row=1, column=1, sticky =tk.W+tk.E)
-label3 = customtkinter.CTkLabel(lblFrame, text="CIS 490 Capstone | 3/9/23", font=('Arial', 15))
-label3.grid(row=2, column=1, sticky =tk.W+tk.E)
-label4 = customtkinter.CTkLabel(lblFrame, text="Welcome to Square Vision, an object regcogniton software! \nPlease select how you would like to execute the program", 
-                  font=('Arial', 15))
+label3 = customtkinter.CTkLabel(lblFrame, text="CIS 490 Capstone | 4/13/23", font=('Arial', 17))
+label3.grid(row=1, column=1, sticky =tk.W+tk.E)
+label2 = customtkinter.CTkLabel(lblFrame, text="Sprint 7 | Team 1", font=('Arial', 15))
+label2.grid(row=2, column=1, sticky =tk.W+tk.E)
+label4 = customtkinter.CTkLabel(lblFrame, text="Welcome to Square Vision, an object regcogniton software! \nPlease select how you would like to execute the program \n\nIf you need assistance, click below", font=('Arial', 15))
 label4.grid(row=3, column=1, sticky =tk.W+tk.E)
+btnHelp = customtkinter.CTkButton(lblFrame, text="Help", command=lambda:help(), font=('Arial bold', 12))
+btnHelp.grid(row=4, column=1)
 lbl5 = customtkinter.CTkLabel(lblFrame, text = "")
-lbl5.grid(row=4, column =1)
+lbl5.grid(row=5, column =1)
 
 lblFrame.pack(fill="both")
 
@@ -192,6 +200,8 @@ btnDefault = customtkinter.CTkButton(buttonFrame, text="Default Settings", comma
 btnDefault.grid(row=9, column=2, sticky =tk.W+tk.E)
 lblDefaultDes = tk.Label(buttonFrame, text = "Default Definitions: \nInput Device = Internal Camera \nConfidence Threashold = 50% \nNMS Threashold = 20%", font=('Arial', 13), anchor="w")
 lblDefaultDes.grid(row=8, column=2, sticky =tk.N)
+
+
 
 
 buttonFrame.pack(fill = "both")
