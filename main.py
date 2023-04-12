@@ -106,11 +106,11 @@ def help():
     lblInst.pack()
     lblsuffer = Label(newWindow, text = "For Default Settings:\nSelect 'Default Settings' button on the bottom right", font=("Arial", 12))
     lblsuffer.pack()
-    lblMoreSuffering = Label(newWindow, text = "\nFor Custom Settings:\nSelect Camera Type - Click on the Button that corresponds to your choice\n\nSelect Confidence Threashold - Enter a number between 1-100 in the textbox and select confirm\nNOTE: A warning will appear if the input is not valid\n\nSelect Object Overlap Threashold - Enter a number between 1-100 in the textbox and select confirm\nNOTE: A warning will appear if the input is not valid\n\nAfter all fields are confirmed, select 'Custom Settings' on the bottom right", 
+    lblMoreSuffering = Label(newWindow, text = "\nFor Custom Settings:\nSelect Camera Type - Click on the Button that corresponds to your choice\n\nSelect Confidence Threashold - Enter a number between 1-100 in the textbox and select confirm\nNOTE: A warning will appear if the input is not valid\n\nSelect Object Overlap Threashold - Enter a number between 1-100 in the textbox and select confirm\nNOTE: A warning will appear if the input is not valid\n\nAfter all fields are confirmed, select 'Custom Settings' on the bottom left", 
                       font = ("Arial", 12))
     lblMoreSuffering.pack()
 
-    lbldef = Label(newWindow, text = "\nDefinitions", font = ("Arial", 17))
+    lbldef = Label(newWindow, text = "\nVariable Definitions", font = ("Arial", 17))
     lbldef.pack()
 
     lblIamGraduating = Label(newWindow, text = "Camera - Choose between a system's internal Camera or Externally installed Camera\n\n Confidence Threashold - Determines how confident the algorthim is at identifying objects\n on a scale of 1%-100% with 1 being not confident and 100 being absloutly certain\n\n Overlap Threashold - Determines how much surface area the object recognition boxes can overlap\n on a scale of 1%-100%", font = ("Arial", 12))
