@@ -99,8 +99,24 @@ def customMode():
 def help():
     newWindow = Toplevel(root)
     newWindow.title("Square Vision Help")
-    newWindow.geometry("400x400")
-    Label(newWindow, text = "This is a new window").pack()
+    newWindow.geometry("900x600")
+    lblTitle = Label(newWindow, text = "Square Vision Help", font=('Arial bold', 20))
+    lblTitle.pack()
+    lblInst = Label(newWindow, text = "Instructions", font=("Arial", 17))
+    lblInst.pack()
+    lblsuffer = Label(newWindow, text = "For Default Settings:\nSelect 'Default Settings' button on the bottom right", font=("Arial", 12))
+    lblsuffer.pack()
+    lblMoreSuffering = Label(newWindow, text = "\nFor Custom Settings:\nSelect Camera Type - Click on the Button that corresponds to your choice\n\nSelect Confidence Threashold - Enter a number between 1-100 in the textbox and select confirm\nNOTE: A warning will appear if the input is not valid\n\nSelect Object Overlap Threashold - Enter a number between 1-100 in the textbox and select confirm\nNOTE: A warning will appear if the input is not valid\n\nAfter all fields are confirmed, select 'Custom Settings' on the bottom right", 
+                      font = ("Arial", 12))
+    lblMoreSuffering.pack()
+
+    lbldef = Label(newWindow, text = "\nDefinitions", font = ("Arial", 17))
+    lbldef.pack()
+
+    lblIamGraduating = Label(newWindow, text = "Camera - Choose between a system's internal Camera or Externally installed Camera\n\n Confidence Threashold - Determines how confident the algorthim is at identifying objects\n on a scale of 1%-100% with 1 being not confident and 100 being absloutly certain\n\n Overlap Threashold - Determines how much surface area the object recognition boxes can overlap\n on a scale of 1%-100%", font = ("Arial", 12))
+    lblIamGraduating.pack()
+
+
 
 
 ###########################################################
@@ -113,7 +129,7 @@ def help():
 customtkinter.set_appearance_mode("system")
 customtkinter.set_default_color_theme("blue")
 root = customtkinter.CTk()
-root.geometry("900x600")
+root.geometry("700x540")
 root.title("Square Vision")
 var = tk.StringVar()
 customtkinter.set_default_color_theme("dark-blue")
@@ -170,7 +186,7 @@ lblConfTxt = customtkinter.CTkLabel(buttonFrame, text = "Set Confidence Threasho
 lblConfTxt.grid(row=3, column=0,sticky =tk.W+tk.E, padx=20, pady=0)
 txtConf = customtkinter.CTkEntry(buttonFrame)
 txtConf.grid(row=3, column=1,sticky =tk.W+tk.E, padx=20, pady=0)
-btnConf = customtkinter.CTkButton(buttonFrame, text = "Confirm Confidence", command=conf,)
+btnConf = customtkinter.CTkButton(buttonFrame, text = "Confirm", command=conf,)
 btnConf.grid(row=4, column=1, sticky =tk.W+tk.E, padx=20, pady=10)
 answer = customtkinter.CTkLabel(buttonFrame, text="Determine how confidently the algorithm \ncan identify objects", font=('Arial', 14))
 answer.grid(row=3, column=2, sticky =tk.W+tk.E, padx=15, pady=0)
@@ -182,7 +198,7 @@ lblConfNMS = customtkinter.CTkLabel(buttonFrame, text = "Object Overlap Threasho
 lblConfNMS.grid(row=5, column=0,sticky =tk.W+tk.E, padx=20, pady=0)
 txtNMS = customtkinter.CTkEntry(buttonFrame)
 txtNMS.grid(row=5, column=1,sticky =tk.W+tk.E, padx=20, pady=0)
-btnNMS = customtkinter.CTkButton(buttonFrame, text = "Confirm NMS", command=nms)
+btnNMS = customtkinter.CTkButton(buttonFrame, text = "Confirm", command=nms)
 btnNMS.grid(row=6, column=1, sticky =tk.W+tk.E, padx=20, pady=0)
 ansNMS = customtkinter.CTkLabel(buttonFrame, text="Determine close object recongnition clarity", font=('Arial', 14))
 ansNMS.grid(row=5, column=2, sticky =tk.W+tk.E, padx=20, pady=10)
