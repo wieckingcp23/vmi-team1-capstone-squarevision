@@ -10,9 +10,11 @@ def setVid(x):
     vid = x
     selection = "Camera Selected: "
     if (x == 0):
-        selection += "Internal Camera"
-    if (x == 1):
         selection += "External Camera"
+        print(x)
+    if (x == 1):
+        selection += "Internal Camera"
+        print(x)
     lblRBOut.configure(text = selection, fg_color='lime', corner_radius = 10, text_color = "black")
 
 def conf():
@@ -76,18 +78,19 @@ def nms():
 
 #Runs the default settings
 def mainMode():
-    videoPath = 0
+    videoPath = vid
 
     configPath = os.path.join("model_data", "ssd_mobilenet_v3_large_coco_2020_01_14.pbtxt")
     modelPath = os.path.join("model_data", "frozen_inference_graph.pb")
     classesPath = os.path.join("model_data", "coco.names")
 
-    detector = Detector(videoPath, configPath, modelPath, classesPath)
+    detector = Detector(videoPath, configPath, modelPath,
+                         classesPath)
     detector.onVideo()
 
 #Runs the custom settings
 def customMode():
-    videoPath = 0
+    videoPath = vid
 
     configPath = os.path.join("model_data", "ssd_mobilenet_v3_large_coco_2020_01_14.pbtxt")
     modelPath = os.path.join("model_data", "frozen_inference_graph.pb")
@@ -171,10 +174,10 @@ buttonFrame.columnconfigure(3, weight=7)
 ##########################################
 lblCamera = customtkinter.CTkLabel(buttonFrame, text="Select Camera",font=('Arial', 14))
 lblCamera.grid(row=0, column=0, sticky =tk.W+tk.E)
-r1 = customtkinter.CTkRadioButton(buttonFrame, text='Internal Camera', variable=var, value=0, command=lambda:setVid(0))
-r1.grid(row=0, column=1, sticky =tk.W+tk.E, padx=20, pady=0)
-r2 = customtkinter.CTkRadioButton(buttonFrame, text='External Camera', variable=var, value=1, command=lambda:setVid(1))
-r2.grid(row=1, column=1, sticky =tk.W+tk.E, padx=20, pady=5)
+r1 = customtkinter.CTkRadioButton(buttonFrame, text='External Camera', variable=var, value=0, command=lambda:setVid(0))
+r1.grid(row=1, column=1, sticky =tk.W+tk.E, padx=20, pady=0)
+r2 = customtkinter.CTkRadioButton(buttonFrame, text='Internal Camera', variable=var, value=1, command=lambda:setVid(1))
+r2.grid(row=0, column=1, sticky =tk.W+tk.E, padx=20, pady=5)
 lblRBOut = customtkinter.CTkLabel(buttonFrame, width=20, text='Select what camera you want to use', font=('Arial', 14))
 lblRBOut.grid(row=0, column=2, sticky =tk.W+tk.E)
 
