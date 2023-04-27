@@ -1,0 +1,17 @@
+This is the GitHub Repository for Square Vision, an object recognition software.
+*NOTE: This only contains the code and sprints for the 2D Implementation of Square Vision
+
+Square Vision was created by Peyton Wiecking, John Barker, Connor Holland, and Ian Salyers as a requirment to graduate from the Virginia Military Institute
+
+Product Information:
+  Course(s): CIS 480 - Pre-Capstone and CIS 490 - Capstone
+  Instructor: Dr. Denis Gracanin
+  Advisor: Dr. Imran Ghani
+  
+Software Information:
+  Language(s): Python
+    Libraries: OpenCV, TKinter, CustomTKinter
+  Imports Required:
+    py -m ensurepip --upgrade
+    py -m pip install opencv-python
+    py -m pip install customtkinter --upgrade
