@@ -11,10 +11,8 @@ def setVid(x):
     selection = "Camera Selected: "
     if (x == 0):
         selection += "Internal Camera"
-        print(x)
     if (x == 1):
         selection += "External Camera"
-        print(x)
     lblRBOut.configure(text = selection, fg_color='lime', corner_radius = 10, text_color = "black")
 
 def conf():
@@ -51,7 +49,6 @@ def nms():
         p = int(txtNMS.get())
         global nms
         nms = int(p)/100
-        print(nms)
         if (p <= 0):
             ansNMS.configure(text = "A NMS Threashold of " + txtNMS.get() + " is too low", 
                              font=('Arial bold', 14), fg_color='red', corner_radius = 10, text_color = "black")
@@ -145,12 +142,10 @@ lblFrame.columnconfigure(1, weight=7)
 lblFrame.columnconfigure(2, weight=7)
 
 
-label = customtkinter.CTkLabel(lblFrame, text="Square Vision 2D v. 7.0", font=('Arial bold', 20))
+label = customtkinter.CTkLabel(lblFrame, text="Square Vision 2D", font=('Arial bold', 20))
 label.grid(row=0, column=1, sticky =tk.W+tk.E)
-label3 = customtkinter.CTkLabel(lblFrame, text="CIS 490 Capstone | 4/13/23", font=('Arial', 17))
+label3 = customtkinter.CTkLabel(lblFrame, text="CIS 490 Capstone Team 1", font=('Arial', 17))
 label3.grid(row=1, column=1, sticky =tk.W+tk.E)
-label2 = customtkinter.CTkLabel(lblFrame, text="Sprint 7 | Team 1", font=('Arial', 15))
-label2.grid(row=2, column=1, sticky =tk.W+tk.E)
 label4 = customtkinter.CTkLabel(lblFrame, text="Welcome to Square Vision, an object regcogniton software! \nPlease select how you would like to execute the program \n\nIf you need assistance, click below", font=('Arial', 15))
 label4.grid(row=3, column=1, sticky =tk.W+tk.E)
 btnHelp = customtkinter.CTkButton(lblFrame, text="Help", command=lambda:help(), font=('Arial bold', 12))
