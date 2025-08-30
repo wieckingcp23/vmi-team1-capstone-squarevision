@@ -1,17 +1,45 @@
-# Team1
+# Square Vision — Sprint 2
 
-Uses OpenCV
+**Course:** CIS 480 Pre-Capstone / CIS 490 Capstone  
+**Institution:** Virginia Military Institute  
+**Sprint:** 2  
+**Branch:** `Sprint2`
 
-File Descriptions:
-main.py -  the real-time object recognition using OpenCV 
-image_dect.py - object recongnition on image files (.png, .jpg. etc) 
-bogart.jpg - self explanatory
-coco.names - the list of objects that OpenCV can recognize (DO NOT EDIT) 
-frozen_inference_graph.pb - trained OpenCV algorithim (DO NOT EDIT) 
-ssd_mobilenet_v3_large_coco_2020_01_14.pbtxt - runs the OpenCV algorithim (DO NOT EDIT) 
+## Summary
+This sprint introduced real-time object detection using OpenCV’s deep learning module with a pre-trained SSD MobileNet v3 model trained on the COCO dataset. Two scripts were created: one for webcam input and one for image files. A sample image (`bogart.jpg`) and model files are included for testing.
 
-Help Received:
-https://towardsdatascience.com/object-detection-with-10-lines-of-code-d6cb4d86f606
-https://www.youtube.com/watch?v=lE9eZ-FGwoE
-https://www.javatpoint.com/object-recognition-using-python
-https://www.computervision.zone/topic/video-lesson-basic/
+## Repository Contents
+- `main.py` — Real-time object detection from webcam  
+- `image_dect.py` — Object detection on still images (JPG/PNG)  
+- `testImage1.jpg` — Sample image for testing  
+- `coco.names` — List of COCO object classes  
+- `frozen_inference_graph.pb` — Pre-trained model weights  
+- `ssd_mobilenet_v3_large_coco_2020_01_14.pbtxt` — Model configuration file  
+
+## How to Run (Sprint 2)
+Install dependencies:
+```bash
+py -m pip install --upgrade pip
+py -m pip install opencv-python
+```
+
+Run real-time detection:
+```bash
+python main.py
+```
+
+Run image detection:
+```bash
+python image_dect.py
+```
+Press q to quit the camera window.
+
+## Notes and Limitations
+- Requires the full model files to be present in the working directory
+- Detection speed may vary by hardware
+- Scripts have minimal error handling
+
+## Next Sprint Plan
+- Add GUI elements to control starting, stopping, or selecting image/video inputs
+- Improve detection overlays with cleaner labels and adjustable confidence thresholds
+- Begin organizing code into modules for easier updates
