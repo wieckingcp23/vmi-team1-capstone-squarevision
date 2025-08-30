@@ -44,3 +44,9 @@ Press q in the OpenCV window to quit.
 - All model files must remain in `model_data/`
 - GUI remains single threaded while detection runs
 - Basic input validation is present but not exhaustive
+
+## Next Sprint Plan
+- Fix bugs and standardize handler names and messages in the GUI
+- Make customMode use the selected camera index reliabl
+- Add a Help window with basic instructions and definitions
+- Keep a small `CustomTkinter` demo (`test2.py`) for UI testing
