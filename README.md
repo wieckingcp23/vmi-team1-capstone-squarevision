@@ -44,3 +44,9 @@ python main.py
 - Model files and `coco.names` must be in the working directory
 - GUI remains single threaded and can block while detection runs
 - Basic cleanup on exit may be inconsistent on some systems
+
+## Next Sprint Plan
+- Break out detection logic into a separate module to simplify main.py
+- Organize model files and label names into dedicated folders
+- Add simple tests and a sample group image for validation
+- Remove or archive older scripts to reduce clutter
