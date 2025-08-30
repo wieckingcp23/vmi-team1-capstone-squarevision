@@ -29,7 +29,13 @@ Exit the window by pressing q.
 ## Notes and Limitations
 - Uses the default Haar cascade `haarcascade_frontalface_default.xml` from `cv2.data.haarcascades`
 - Assumes a working default camera at index 0
+- Minimal error handling
+- Known cleanup issue: the release call in the code uses an undefined variable name, so the camera window may not close cleanly
 
-Minimal error handling
+---
 
-Known cleanup issue: the release call in the code uses an undefined variable name, so the camera window may not close cleanly
+## Next Sprint Plan (derived from Sprint 2)
+1. Move from basic face detection to full object detection using a pre-trained model
+2. Add support for both real-time video (`main.py`) and still images (`image_dect.py`)
+3. Include model files and labels needed for detection (`COCO dataset`)
+4. Show object names and confidence levels on the screen
