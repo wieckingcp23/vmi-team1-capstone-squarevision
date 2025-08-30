@@ -78,7 +78,7 @@ Each sprint branch captures the state at that time.
 - Peyton Wiecking:[@wieckingcp23](https://github.com/wieckingcp23) 
 - John Barker: [@JohnBC11121](https://github.com/JohnBC11121)
 - Connor Holland: @hollandcw23 - _Inactive Account_
-- Ian Salyers: @salyersia24 - _Inactive Account_
+- Ian Salyers: [@SalyersIJ](https://github.com/SalyersIJ)
 
 Instructor: [Dr. Denis Gracanin](https://people.cs.vt.edu/~gracanin/home/Home.html)  
 Advisor: [Dr. Imran Ghani](https://www.researchgate.net/profile/Imran-Ghani-2)
