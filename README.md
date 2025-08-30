@@ -45,3 +45,9 @@ python main.py
 - Model files and coco.names must be in the working directory
 - GUI is minimal and blocking; limited error handling
 - Some resource cleanup may be inconsistent on exit
+
+## Next Sprint Plan
+- Add a Tkinter GUI to control camera source, confidence threshold, and a run timer.
+- Refactor variable names and inputs for clarity, and add basic instructions to the window.
+- Include new test images and keep older scripts as archived references.
+- Improve startup and shutdown behavior for the camera and windows.
