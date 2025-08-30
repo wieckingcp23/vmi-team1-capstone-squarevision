@@ -39,7 +39,6 @@ py -m pip install opencv-python numpy customtkinter
 ```
 Run the GUI:
 ```bash
-Copy code
 python main.py
 ```
 ## Controls:
