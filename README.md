@@ -54,3 +54,10 @@ python main.py
 - `model_data/` and `coco.names` folders must be present with the expected files
 - GUI validation warns about extreme threshold values but does not block execution
 - Some archived scripts remain for reference
+
+## Next Sprint Plan
+- Clean up and standardize GUI code and handler names
+- Remove redundant folders and keep all model files under model_data
+- Keep main.py as the primary GUI and retain test.py only as a simple fallback
+- Tidy labels and validation for confidence and NMS inputs
+- Verify consistent model paths and resource cleanup
