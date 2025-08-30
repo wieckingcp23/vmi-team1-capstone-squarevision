@@ -52,4 +52,3 @@ This repository contains the **2D implementation** of Square Vision, including s
 ## Notes
 - This repository is preserved as an academic artifact.
 - The project demonstrates the challenges and learning outcomes of a senior capstone, but is not actively maintained
-trates the challenges and learning outcomes of a senior capstone, but is not actively maintained.
