@@ -1,17 +1,46 @@
-# Team1
+# Square Vision — Sprint 4
 
-Uses OpenCV
+**Course:** CIS 480 Pre-Capstone / CIS 490 Capstone  
+**Institution:** Virginia Military Institute  
+**Sprint:** 4  
+**Branch:** `Sprint4`
 
-File Descriptions:
-main.py -  the real-time object recognition using OpenCV 
-image_dect.py - object recongnition on image files (.png, .jpg. etc) 
-bogart.jpg - self explanatory
-coco.names - the list of objects that OpenCV can recognize (DO NOT EDIT) 
-frozen_inference_graph.pb - trained OpenCV algorithim (DO NOT EDIT) 
-ssd_mobilenet_v3_large_coco_2020_01_14.pbtxt - runs the OpenCV algorithim (DO NOT EDIT) 
+## Summary
+This sprint refactors the app and introduces a clearer Tkinter interface for running detections. The GUI lets the user select internal or external camera, set a confidence threshold, and run for a specified duration. New test images were added for quick checks.
 
-Help Received:
-https://towardsdatascience.com/object-detection-with-10-lines-of-code-d6cb4d86f606
-https://www.youtube.com/watch?v=lE9eZ-FGwoE
-https://www.javatpoint.com/object-recognition-using-python
-https://www.computervision.zone/topic/video-lesson-basic/
+## Repository Contents
+- `main.py` — GUI app with camera selection, confidence slider, and timer input  
+- `image_dect.py` — Detection on still images  
+- `timer.py` — Simple timing and performance checks  
+- `coco.names` — COCO class labels  
+- `frozen_inference_graph.pb` — Pre-trained model weights  
+- `ssd_mobilenet_v3_large_coco_2020_01_14.pbtxt` — Model configuration  
+- `vmi.png` - GUI Element
+- `testImage1.jpg`, `testImage2.jpg` — Test images  
+- `OldCOde.py` — Archived earlier logic  
+- `.github/workflows/blank.yml` — Placeholder workflow
+
+## How to Run (Sprint 4)
+Requirements:
+- Python 3.8 or later
+- OpenCV and Pillow
+```bash
+py -m pip install --upgrade pip
+py -m pip install opencv-python pillow
+```
+Run the GUI:
+```bash
+python main.py
+```
+
+## Controls:
+- Select camera: Internal or External
+- Adjust confidence threshold with the slider
+- Enter run time in seconds and click Enter
+- Start with Custom Settings or use Default Settings
+- Press q in the OpenCV window to stop.
+
+## Notes and Limitations
+- Model files and `coco.names` must be in the working directory
+- GUI remains single threaded and can block while detection runs
+- Basic cleanup on exit may be inconsistent on some systems
