@@ -40,6 +40,8 @@ Press q to quit the camera window.
 - Scripts have minimal error handling
 
 ## Next Sprint Plan
-- Add GUI elements to control starting, stopping, or selecting image/video inputs
-- Improve detection overlays with cleaner labels and adjustable confidence thresholds
-- Begin organizing code into modules for easier updates
+- Add timing functionality to measure performance such as FPS
+- Introduce new test images for validation beyond the original sample
+- Clean up or archive older detection scripts as development progresses
+- Refine existing detection scripts for stability and cleaner outputs
+- Begin thinking about additional UI or features beyond plain detection
