@@ -1,5 +1,14 @@
 # Square Vision (2D)
 
+**Type:** Undergraduate Capstone 
+**Institution:** Virginia Military Institute
+**Course:** CIS 480/490 Capstone 
+**Date:** 3 May 2023  
+**Grade:** 100/100
+
+---
+
+## Description
 Object recognition app using OpenCV’s DNN module with a pre-trained SSD MobileNet v3 model. Final deliverable for VMI CIS 490 Capstone Team 1.  
 The `main` branch contains the final runnable code and links to sprint branches for the full history.
 
