@@ -1,10 +1,10 @@
 # Square Vision (2D)
 
-**Type:** Undergraduate Capstone 
-**Institution:** Virginia Military Institute
-**Course:** CIS 480/490 Capstone 
+**Type:** Undergraduate Capstone  
+**Institution:** Virginia Military Institute  
+**Course:** CIS 480/490 Capstone  
 **Date:** 3 May 2023  
-**Grade:** 100/100
+**Grade:** 100/100  
 
 ---
 
