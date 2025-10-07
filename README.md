@@ -67,7 +67,7 @@ python image_dect.py
 
 Each sprint branch captures the state at that time.
 
-- [Sprint 1](tree/Sprint1) — Webcam spike and Haar face detection  
+- [Sprint 1](https://github.com/wieckingcp23/vmi-team1-capstone-squarevision/tree/Sprint-1) — Webcam spike and Haar face detection  
 - [Sprint 2](tree/Sprint2) — SSD MobileNet v3 on COCO for webcam and images  
 - [Sprint 3](tree/Sprint3) — Basic Tkinter GUI, timing, new test images  
 - [Sprint 4](tree/Sprint4) — GUI refinements, confidence slider, timer input  
