@@ -68,12 +68,12 @@ python image_dect.py
 Each sprint branch captures the state at that time.
 
 - [Sprint 1](https://github.com/wieckingcp23/vmi-team1-capstone-squarevision/tree/Sprint-1) — Webcam spike and Haar face detection  
-- [Sprint 2](tree/Sprint2) — SSD MobileNet v3 on COCO for webcam and images  
-- [Sprint 3](tree/Sprint3) — Basic Tkinter GUI, timing, new test images  
-- [Sprint 4](tree/Sprint4) — GUI refinements, confidence slider, timer input  
-- [Sprint 5](tree/Sprint5) — Detector class refactor and CustomTkinter GUI  
-- [Sprint 6](tree/Sprint6) — Cleanup, path consolidation, minor fixes  
-- [Sprint 7](tree/Sprint7) — Final bug fixes, Help window, final polish  
+- [Sprint 2](https://github.com/wieckingcp23/vmi-team1-capstone-squarevision/tree/Sprint-2) — SSD MobileNet v3 on COCO for webcam and images  
+- [Sprint 3](https://github.com/wieckingcp23/vmi-team1-capstone-squarevision/tree/Sprint-3) — Basic Tkinter GUI, timing, new test images  
+- [Sprint 4](https://github.com/wieckingcp23/vmi-team1-capstone-squarevision/tree/Sprint-4) — GUI refinements, confidence slider, timer input  
+- [Sprint 5](https://github.com/wieckingcp23/vmi-team1-capstone-squarevision/tree/Sprint-5) — Detector class refactor and CustomTkinter GUI  
+- [Sprint 6](https://github.com/wieckingcp23/vmi-team1-capstone-squarevision/tree/Sprint-6) — Cleanup, path consolidation, minor fixes  
+- [Sprint 7](https://github.com/wieckingcp23/vmi-team1-capstone-squarevision/tree/Sprint-7) — Final bug fixes, Help window, final polish  
 
 ## Notes and Limitations
 
